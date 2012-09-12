@@ -3,27 +3,6 @@ from collections import defaultdict, namedtuple
 import sys
 import time
 
-class TracedCounter(object):
-    def __init__(self, title, interval=10000):
-        print "#", title,
-        sys.stdout.flush()
-        self.counter = 0
-        self.starttime = time.time()
-        self.startclock = time.clock()
-        self.interval = interval
-
-    def inc(self, out="."):
-        self.counter += 1
-        if self.counter % self.interval == 0:
-            sys.stdout.write(out)
-            sys.stdout.flush()
-
-    def finalize(self):
-        self.time = time.time() - self.starttime
-        self.clock = time.clock() - self.startclock
-        print " [%d] %.2f s / %.2f s" % (self.counter, self.clock, self.time)
-
-
 class Parser(object):
     def __init__(self, mcfrules, startcats, trace=None, nonempty=None, **strategy):
         self._init_strategy(**strategy)
@@ -474,13 +453,7 @@ def remove_emptyrules(grammar, trace=None):
     if trace: ctr.finalize()
     return empty_rules
 
-NEFun = namedtuple("NEFun", "orig elbls")
-NECat = namedtuple("NECat", "orig elbls")
-SFun = namedtuple("SFun", "orig args")
 
-NEFun.__str__ = lambda self: "%s/%s" % self
-NECat.__str__ = lambda self: "%s/%s" % self
-SFun.__str__ = lambda self: "%s[%s]" % (self.orig, ",".join("%s" % (a,) for a in self.args))
 
 
 ######################################################################
@@ -855,12 +828,57 @@ RHSSymbol = namedtuple("RHSSymbol", "arg lbl")
 RHSSymbol.toSymbol = lambda self, args: Symbol(args[self[0]], self[1])
 
 Found = namedtuple("Found", "cat lbl start end")
-
 Active = namedtuple("Active", "start end lbl nextsym pos rule")
-
-# Predict = namedtuple("Predict", "cat lbl")
-
 Rule = namedtuple("Rule", "fun cat args")
+
+Found.__str__ = lambda s: "[%s.%s: %s-%s]" % (s.cat, s.lbl, s.start, s.end)
+Active.__str__ = lambda s: "[%s-%s: %s/%s = %s | %s]" % (s.start, s.end, s.lbl, s.pos, s.nextsym, s.rule)
+Rule.__str__ = lambda s: show_rule(s)
+
+NEFun = namedtuple("NEFun", "orig lbls")
+NECat = namedtuple("NECat", "orig lbls")
+SFun = namedtuple("SFun", "orig args")
+
+NEFun.__str__ = lambda self: "%s/%s" % self
+NECat.__str__ = lambda self: "%s/%s" % self
+SFun.__str__ = lambda self: "%s[%s]" % (self.orig, ",".join("%s" % (a,) for a in self.args))
+
+
+def get_orig(term):
+    while hasattr(term, 'orig'):
+        term = term.orig
+    return term
+
+def powerset(seq, n=0):
+    if isinstance(seq, set):
+        seq = list(seq)
+    if n < len(seq):
+        for item in powerset(seq, n+1):
+            yield item
+            yield [seq[n]] + item
+    else:
+        yield []
+
+
+class TracedCounter(object):
+    def __init__(self, title, interval=10000):
+        print "#", title,
+        sys.stdout.flush()
+        self.counter = 0
+        self.starttime = time.time()
+        self.startclock = time.clock()
+        self.interval = interval
+
+    def inc(self, out="."):
+        self.counter += 1
+        if self.counter % self.interval == 0:
+            sys.stdout.write(out)
+            sys.stdout.flush()
+
+    def finalize(self):
+        self.time = time.time() - self.starttime
+        self.clock = time.clock() - self.startclock
+        print " [%d] %.2f s / %.2f s" % (self.counter, self.clock, self.time)
 
 
 ######################################################################
