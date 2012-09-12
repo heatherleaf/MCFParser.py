@@ -3,13 +3,6 @@ from collections import defaultdict, namedtuple
 import sys
 import time
 
-# TODO: get inspired by Angelov's pseudocode
-# TODO: add support for Pickle
-# TODO: d[a][b] is faster than d[a,b], but how much?
-# TDOO: parsing a lattice/word graph of tokens
-# TODO: add docstrings!!
-# TODO: run pylint
-
 class TracedCounter(object):
     def __init__(self, title, interval=10000):
         print "#", title,

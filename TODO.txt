@@ -1,0 +1,40 @@
+
+### General issues
+
+- start using the github tracker
+
+- create unittests
+
+
+### MCFParser.py
+
+- get inspired by Angelov's pseudocode
+
+- add support for Pickle
+
+- d[a][b] is faster than d[a,b], but how much?
+
+- parsing a lattice/word graph of tokens
+
+- add docstrings!!
+
+- run pylint
+
+- emptyfollowers doesn't work
+
+- try to filter the nonempty grammar 
+
+- add a terminal filter inspired by Kallmeyer&Maier
+alternatively: just filter out the lexical rules that do not cover the input
+
+- there's a bug somewhere in remove_emptyrules()
+
+
+### GF.py
+
+- better linearization algorithm
+
+- move linearization to MCFG.py ??
+
+- make pre{} work
+
