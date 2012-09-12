@@ -27,8 +27,48 @@
 - add a terminal filter inspired by Kallmeyer&Maier
 alternatively: just filter out the lexical rules that do not cover the input
 
-- there's a bug somewhere in remove_emptyrules()
+- there's a bug somewhere in remove_emptyrules(), it fails for the following grammar:
 
+>>> for c, rs in TDParser.grammar['topdown'].items():
+...     for r in rs: print MCFParser.show_rule(r + (TDParser.grammar['sequences'][r.fun],))
+
+C2 -> F9 (C0, C0) = s0: [<0.s0> <1.s1>]
+C2 -> F10 (C1) = s0: [<0.s0>]
+C2 -> F11 (C1) = s0: [<0.s0> <0.s1>]
+C2 -> F12 (C1) = s0: [<0.s1>]
+
+C1 -> F7 (C0) = s0: [<0.s0> <0.s1>], s1: []
+C1 -> F8 (C0) = s0: [<0.s0>], s1: [<0.s1>]
+
+C0 -> F3 () = s0: [AA], s1: []
+C0 -> F4 () = s0: [A], s1: [B]
+C0 -> F5 () = s0: [], s1: [BB]
+C0 -> F6 () = s0: [], s1: []
+
+>>> for t in sorted(TDParser.parse(["A"])): print str_tree(t)
+(F10 (F8 (F4)))
+(F9 (F4) (F3))   ### <----
+(F9 (F4) (F6))   ### <----
+
+>>> for t in sorted(BUParser.parse(["A"])): print str_tree(t)
+(F10 (F8 (F4)))
+
+>>> for t in sorted(TDParser.parse(["AA"])): print GF.str_tree(t)
+(F10 (F7 (F3)))
+(F10 (F8 (F3)))
+(F11 (F7 (F3)))
+(F11 (F8 (F3)))
+(F9 (F3) (F3))
+(F9 (F3) (F6))
+
+>>> for t in sorted(BUParser.parse(["AA"])): print GF.str_tree(t)
+(F10 (F7 (F3)))
+(F10 (F8 (F3)))
+(F11 (F7 (F3)))
+(F11 (F8 (F3)))
+(F9 (F3) (F3))
+(F9 (F3) (F5))   ### <----
+(F9 (F3) (F6))
 
 ### GF.py
 
