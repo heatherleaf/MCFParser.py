@@ -459,18 +459,16 @@ def remove_emptyrules(grammar, trace=None):
 ######################################################################
 
 def generate_trees(cat, rules, emptyrules={}, visited=set()):
-    while type(cat) is NECat:
-        cat = cat.orig
     catrules = rules.get(cat)
     if not catrules: 
+        cat = get_orig(cat)
         catrules = emptyrules.get(cat, ())
+        rules, emptyrules = emptyrules, {}
     for rule in catrules:
         if rule not in visited:
             visited_copy = visited | set([rule])
             assert rule.cat == cat, (cat, rule)
-            fun = rule.fun
-            while type(fun) in (SFun, NEFun):
-                fun = fun.orig
+            fun = get_orig(rule.fun)
             for argtrees in generate_tree_children(0, rule.args, rules, emptyrules, visited_copy):
                 yield (fun,) + argtrees
 
