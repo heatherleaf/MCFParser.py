@@ -45,16 +45,26 @@ class Parser(object):
         if self.bottomup:
             self._init_bu_grammar()
         if self.trace: 
+            self.print_grammar_statistics()
+
+    def print_grammar_statistics(self):
             print "# Nr. terminals:     ", len(set(word for rhs in self.grammar['sequences'].itervalues()
                                                    for word in rhs if type(word) is not RHSSymbol))
             print "# Nr. nonterminals:  ", len(set(self.grammar['catlabels']))
             print "# Nr. nonterm-const.:", sum(len(lbls) for lbls in self.grammar['catlabels'].itervalues())
             print "# Nr. grammar rules: ", sum(len(rules) for rules in self.grammar['topdown'].itervalues())
+        if 'emptyrules' in self.grammar:
+            print "# Nr. empty rules:   ", sum(len(rules) for rules in self.grammar['emptyrules'].itervalues())
             print "# Nr. constituents:  ", sum(len(self.grammar['sequences'][rule.fun]) 
                                                for rules in self.grammar['topdown'].itervalues() for rule in rules)
             print "# Nr. const. lengths:", sum(len(rhs) 
                                                for rules in self.grammar['topdown'].itervalues() for rule in rules
                                                for rhs in self.grammar['sequences'][rule.fun].itervalues())
+        if 'emptycats' in self.grammar:
+            print "# Nr. empty const.:  ", len(self.grammar['emptycats'])
+        if 'leftcorner' in self.grammar:
+            print "# Nr. leftc. pairs:  ", sum(len(parents) for parents in self.grammar['leftcorner'].itervalues())
+            print "# Nr. lcword. pairs: ", sum(len(parents) for parents in self.grammar['lcwords'].itervalues())
             print
 
     ######################################################################
@@ -201,7 +211,7 @@ class Parser(object):
         emptycats = self.grammar['emptycats'] = set()
         if not self.grammar['is_empty']:
             return
-        if self.trace: ctr = TracedCounter("Empty categoriess:")
+        if self.trace: ctr = TracedCounter("Empty categories:")
         agenda = [(0, rule, lbl) 
                   for tdrules in td_grammar.itervalues()
                   for rule in tdrules
@@ -954,12 +964,9 @@ def show_rule(rule):
         fun, cat, args, rhss = rule
         rhs_suffix = " = " + ", ".join("%s: [%s]" % (show_lbl(lbl), " ".join(map(show_sym, rhs))) 
                                        for lbl, rhs in rhss.iteritems())
-    return "%s. %s <- (%s)%s" % (showfun(fun), show_cat(cat), ", ".join(map(show_cat, args)), rhs_suffix)
+    return "%s -> %s (%s)%s" % (show_cat(cat), showfun(fun), ", ".join(map(show_cat, args)), rhs_suffix)
 
 
 def showfun(fun):
-    # if type(fun) is tuple:
-    #     return "(%s)" % "/".join(map(showfun, fun))
-    # else:
     return "%s" % (fun,)
 
