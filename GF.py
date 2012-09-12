@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import itertools
-# from collections import defaultdict
+from collections import namedtuple
 
-# import MCFParser2 as MCFParser
 import MCFParser
 
 META = "{?}"
@@ -246,7 +245,7 @@ class GFParser(object):
                 else:
                     # coercion
                     assert len(args) == 1
-                    cfun = "%s+%s" % (ccat, args[0])
+                    cfun = Coercion(ccat, args[0])
                     arity = self.concrete.arities[args[0]]
                     rhss = coercion_rhss[:arity]
                 if rhss:
@@ -285,16 +284,17 @@ class GFParser(object):
 
     def convert_mcftree(self, mcftree):
         cfun = mcftree[0]
-        if isinstance(cfun, tuple) or isinstance(cfun, basestring) and "+" in cfun:
-            # the function is a coercion
+        if type(cfun) is Coercion:
             assert len(mcftree) == 2, "NOT A COERCION: %s" % str_tree(mcftree)
             return self.convert_mcftree(mcftree[1])
         else:
-            try: # TODO!!
-                _, fun = self.concrete.cncfuns[cfun]
-            except KeyError: 
-                fun = cfun
+            _, fun = self.concrete.cncfuns[cfun]
             return (fun,) + tuple(self.convert_mcftree(t) for t in mcftree[1:])
+
+
+Coercion = namedtuple("Coercion", "cat arg")
+Coercion.__str__ = lambda self: "%s+%s" % self
+
 
 def TDParser(concrete, trace=None):
     return concrete.parser(trace, topdown=True, filtered=False, nonempty=False)
