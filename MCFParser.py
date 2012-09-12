@@ -27,24 +27,24 @@ class Parser(object):
             self.print_grammar_statistics()
 
     def print_grammar_statistics(self):
-            print "# Nr. terminals:     ", len(set(word for rhs in self.grammar['sequences'].itervalues()
-                                                   for word in rhs if type(word) is not RHSSymbol))
-            print "# Nr. nonterminals:  ", len(set(self.grammar['catlabels']))
-            print "# Nr. nonterm-const.:", sum(len(lbls) for lbls in self.grammar['catlabels'].itervalues())
-            print "# Nr. grammar rules: ", sum(len(rules) for rules in self.grammar['topdown'].itervalues())
+        print "# Nr. terminals:     ", len(set(word for rhs in self.grammar['sequences'].itervalues()
+                                               for word in rhs if type(word) is not RHSSymbol))
+        print "# Nr. nonterminals:  ", len(set(self.grammar['catlabels']))
+        print "# Nr. nonterm-const.:", sum(len(lbls) for lbls in self.grammar['catlabels'].itervalues())
+        print "# Nr. grammar rules: ", sum(len(rules) for rules in self.grammar['topdown'].itervalues())
         if 'emptyrules' in self.grammar:
             print "# Nr. empty rules:   ", sum(len(rules) for rules in self.grammar['emptyrules'].itervalues())
-            print "# Nr. constituents:  ", sum(len(self.grammar['sequences'][rule.fun]) 
-                                               for rules in self.grammar['topdown'].itervalues() for rule in rules)
-            print "# Nr. const. lengths:", sum(len(rhs) 
-                                               for rules in self.grammar['topdown'].itervalues() for rule in rules
-                                               for rhs in self.grammar['sequences'][rule.fun].itervalues())
+        print "# Nr. constituents:  ", sum(len(self.grammar['sequences'][rule.fun]) 
+                                           for rules in self.grammar['topdown'].itervalues() for rule in rules)
+        print "# Nr. const. lengths:", sum(len(rhs) 
+                                           for rules in self.grammar['topdown'].itervalues() for rule in rules
+                                           for rhs in self.grammar['sequences'][rule.fun].itervalues())
         if 'emptycats' in self.grammar:
             print "# Nr. empty const.:  ", len(self.grammar['emptycats'])
         if 'leftcorner' in self.grammar:
             print "# Nr. leftc. pairs:  ", sum(len(parents) for parents in self.grammar['leftcorner'].itervalues())
             print "# Nr. lcword. pairs: ", sum(len(parents) for parents in self.grammar['lcwords'].itervalues())
-            print
+        print
 
     ######################################################################
 
@@ -412,32 +412,32 @@ def remove_emptyrules(grammar, trace=None):
                 # This is really necessary for correctness, but it takes LOOOONG time:
                 # for xnrs in powerset(xnrs):
                     if xnrs:
-                newxcat = xrule.cat
-                newxargs = tuple(newcat if xnr in xnrs else xarg 
-                                 for (xnr, xarg) in enumerate(xrule.args))
+                        newxcat = xrule.cat
+                        newxargs = tuple(newcat if xnr in xnrs else xarg 
+                                         for (xnr, xarg) in enumerate(xrule.args))
                         assert type(xrule.fun) is not NEFun, xrule
                         newxfun = SFun(get_orig(xrule.fun), newxargs)
-                newxrule = Rule(newxfun, newxcat, newxargs)
+                        newxrule = Rule(newxfun, newxcat, newxargs)
                         assert newxrule not in newrules, newxrule
                         newrules.add(newxrule)
-                for xnr, xarg in enumerate(newxargs):
-                    argrules[xarg][newxrule].add(xnr)
-                if trace: ctr.inc()
+                        for xnr, xarg in enumerate(newxargs):
+                            argrules[xarg][newxrule].add(xnr)
+                        if trace: ctr.inc()
 
-                newxrhss = dict((lbl, [sym for sym in rhs 
-                                       if not (type(sym) is RHSSymbol and 
-                                               sym[0] in xnrs and sym[1] in elbls)])
-                                for (lbl, rhs) in sequences[xrule.fun].iteritems())
-                assert newxfun not in sequences, newxrule
-                sequences[newxfun] = newxrhss
-                if not all(newxrhss.itervalues()):
-                    agenda.add(newxrule)
+                        newxrhss = dict((lbl, [sym for sym in rhs 
+                                               if not (type(sym) is RHSSymbol and 
+                                                       sym[0] in xnrs and sym[1] in elbls)])
+                                        for (lbl, rhs) in sequences[xrule.fun].iteritems())
+                        assert newxfun not in sequences, newxrule
+                        sequences[newxfun] = newxrhss
+                        if not all(newxrhss.itervalues()):
+                            agenda.add(newxrule)
 
     grammar['emptyrules'] = defaultdict(set)
     for erule in emptyrules:
         newrules.remove(erule)
-            if erule.fun in sequences:
-                del sequences[erule.fun]
+        if erule.fun in sequences:
+            del sequences[erule.fun]
         newrule = Rule(get_orig(erule.fun), get_orig(erule.cat), tuple(map(get_orig, erule.args)))
         grammar['emptyrules'][newrule.cat].add(newrule)
 
@@ -457,6 +457,106 @@ def remove_emptyrules(grammar, trace=None):
     if trace: ctr.finalize()
 
 
+def remove_emptyrules_alternative(grammar, trace=None):
+    if trace: ctr = TracedCounter("Remove emptyrules:", interval=1000)
+    oldrules = grammar['topdown']
+    sequences = grammar['sequences']
+    newcats = set()
+    agenda = set()
+    argrules = defaultdict(lambda:defaultdict(set))
+    newrules = set()
+    newseqs = {}
+    startcats = grammar['startcats']
+    newstarts = set()
+
+    for cat in oldrules:
+        for rule in oldrules[cat]:
+            if rule.args:
+                for nr, arg in enumerate(rule.args):
+                    argrules[arg][rule].add(nr)
+            else:
+                rhss = sequences[rule.fun]
+                newrhss = dict((lbl, rhs) for (lbl, rhs) in rhss.iteritems() if rhs)
+                lbls = tuple(sorted(newrhss))
+                newcat = NECat(rule.cat, lbls)
+                newfun = NEFun(rule.fun, (newcat,))
+                newrule = Rule(newfun, newcat, ())
+                newrules.add(newrule)
+                if newfun in newseqs:
+                    assert newseqs[newfun] == newrhss
+                else:
+                    newseqs[newfun] = newrhss
+                agenda.add(newcat)
+
+    while agenda:
+        newarg = agenda.pop()
+        if newarg in newcats: 
+            continue
+        newcats.add(newarg)
+        for rule, argnrs in argrules[newarg.orig].items():
+            # This is really necessary for correctness, but it takes LOOOONG time:
+            # for argnrs in powerset(argnrs): 
+                if argnrs: 
+                    newargs = tuple(newarg if nr in argnrs else arg 
+                                    for (nr, arg) in enumerate(rule.args))
+                    if any(type(arg) is not NECat for arg in newargs):
+                        newrule = Rule(rule.fun, rule.cat, newargs)
+                        for nr, arg in enumerate(newargs):
+                            if type(arg) is not NECat:
+                                argrules[arg][newrule].add(nr)
+                    else:
+                        rhss = sequences[rule.fun]
+                        newrhss = {}
+                        for lbl, rhs in sequences[rule.fun].iteritems():
+                            newrhs = [sym for sym in rhs if (type(sym) is not RHSSymbol or
+                                                             sym.lbl in newargs[sym.arg].lbls)]
+                            if newrhs:
+                                newrhss[lbl] = newrhs
+                        lbls = tuple(sorted(newrhss))
+                        newcat = NECat(rule.cat, lbls)
+                        newfun = NEFun(rule.fun, (newcat,) + newargs)
+                        newrule = Rule(newfun, newcat, newargs)
+                        newrules.add(newrule)
+                        if newfun in newseqs:
+                            assert newseqs[newfun] == newrhss
+                        else:
+                            newseqs[newfun] = newrhss
+                        if newcat not in newcats:
+                            agenda.add(newcat)
+                    if trace: ctr.inc()
+
+    catlabels = {}
+    emptyrules = defaultdict(set)
+    oldrules.clear()
+    sequences.clear()
+    for rule in newrules:
+        rulecatlbls = rule.cat.lbls
+        rhss = newseqs[rule.fun]
+        if rhss and all(rhss.itervalues()):
+            fun = NEFun(rule.fun, "+".join(map(str, rule.fun.lbls)))
+            cat = NECat(rule.cat, str(rule.cat.lbls))
+            args = tuple(NECat(arg, str(arg.lbls)) for arg in rule.args)
+            rule = Rule(fun, cat, args)
+            oldrules[rule.cat].append(rule)
+            sequences[rule.fun] = rhss
+        else:
+            rule = Rule(get_orig(rule.fun), get_orig(rule.cat), tuple(map(get_orig, rule.args)))
+            emptyrules[rule.cat].add(rule)
+        if rule.cat in catlabels:
+            assert catlabels[rule.cat] == rulecatlbls
+        else:
+            catlabels[rule.cat] = rulecatlbls
+        if get_orig(rule.cat) in startcats:
+            newstarts.add(rule.cat)
+
+    grammar['startcats'] = newstarts
+    grammar['catlabels'] = catlabels
+    grammar['emptyrules'] = emptyrules
+
+    if trace: ctr.finalize()
+
+
+# remove_emptyrules = remove_emptyrules_alternative
 
 
 ######################################################################
