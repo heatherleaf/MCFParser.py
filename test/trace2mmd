@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+
+# This tiny script makes the tracing output from MCFParser.py 
+# suitable for using as input to MultiMarkdown.
+
+# Example usages:
+#
+# trace2mmd parseoutput.txt | multimarkdown > parseoutput.html
+#
+# make -C unittest mcfg | ./trace2mmd | multimarkdown > testresult.html
+
+
+print "CSS: mcftrace.css\n\n";
+
+while (<>) {
+  s{ \* }  { &bull; }g;
+  s{ --> } { &rarr; }g;
+  s{ :: }  { &isin; }g;
+  s{"(.+?)"} {"*$1*"}g;
+  s{""} {" "}g;
+  s{\b([A-Z])\[([\d,]+)\]} {**$1**<sub>$2</sub>}g;
+  s{\b([A-Za-z])(\d+)\b} {$1<sub>$2</sub>}g;
+  s{\bFAIL\b} {***FAIL***};
+
+  print;
+}

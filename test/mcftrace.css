@@ -1,0 +1,16 @@
+/*
+  This CSS can be used together with the trace output 
+  from MultiMarkDown. It is automatically referred to 
+  by the conversion script trace2mmd.
+*/
+
+body    { margin: 20pt }
+h3      { font-size: medium; margin-bottom: 2pt }
+
+table   { margin: 10pt 2pt; border-collapse: collapse } 
+td, th  { padding: 2pt 10pt; border: solid 1pt grey } 
+
+thead tr { background: #aaf } 
+tbody tr:nth-child(odd)  { background: #ffa } 
+tbody tr:nth-child(even) { background: #ccf }
+

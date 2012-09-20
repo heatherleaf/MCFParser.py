@@ -1,0 +1,880 @@
+888 : did Smith write a report in one hour
+36 : she is still in Paris
+1920 : Jones claimed he had costed Smith's proposal
+1440 : most clients at the demonstration were impressed by the system's performance
+120 : ITEL tried to win the contract in 1992
+12 : John hated the meeting
+12528 : did Smith write his first novel in 1992
+0 : the ITEL-ZX is an ITEL computer
+12 : Jones left the meeting
+36 : Smith was writing a report
+72 : Jones also signed them
+48 : Smith swam before Jones swam
+276 : does ITEL currently have a factory in Birmingham
+12 : John wrote a report
+48 : APCOM signed the contract Friday , 13th
+126 : both commissioners used to be businessmen
+60 : every European has the right to live in Europe
+24 : since 1992 ITEL has been in Birmingham
+3240 : the residents of member states have the right to live anywhere in Europe
+12 : Smith swam to the shore
+24 : was every representative at the meeting
+12 : John is successful
+432 : did Smith spend two hours discovering the new species
+36 : John spoke to Mary at four o'clock
+24 : several delegates got the results published
+120 : are there great tenors who are poor
+24 : a few female committee members are from Scandinavia
+108 : they have been removed
+24 : every four-legged mammal is a four-legged animal
+24 : is every four-legged mammal a four-legged animal
+804 : ITEL was winning the contract from APCOM in 1993
+144 : John found Mary before Bill found Mary
+2880 : did Jones claim he had costed Smith's proposal
+1068 : the people who were at the meeting voted for a new chairman
+192 : nobody who is asleep ever knows that he is asleep
+18 : did some delegates finish the survey
+100000 : if it was suggested that Bill and Frank's boss should go together , it was suggested that Carl and Alan's wife should go together
+288 : both female commissioners used to be in business
+90 : Jones left after Anderson left
+48 : every representative and every client was at the meeting
+12 : both leading tenors are excellent
+60 : the PC-6082 is faster than some ITEL computer
+144 : did Smith live in Birmingham for exactly a year
+168 : did any delegate finish the report on time
+288 : are there tenors who will contribute their fees to charity
+348 : there was one auditor who signed all the reports
+0 : an Italian became the world's greatest tenor
+96 : Bill said Mary wrote a report
+192 : are there great tenors who are Italian
+48 : Smith will make a poor stock market trader
+12 : Smith saw Jones sign the contract
+24 : either Smith , Jones or Anderson signed the contract
+60 : Smith was a client at the demonstration
+36 : did a Swede win a Nobel prize
+12 : every representative has read this report
+264 : there are Italian men who want to be a great tenor
+48 : ITEL was in Birmingham in 1993
+36 : did many delegates obtain results from the survey
+36 : ITEL sold 5500 computers
+720 : each Canadian resident can travel freely within Europe
+6912 : they were destroyed when her hard disk crashed
+12 : John spoke to Sue
+60 : Mickey is larger than Dumbo
+192 : was Smith present after Anderson was present
+36 : ITEL built MTALK in 1993
+12 : Bill owns a slow red car
+120 : there are great tenors who are poor
+5280 : the residents of member states can travel freely within Europe
+30 : did ITEL expand in 1993
+12 : ITEL won the APCOM contract
+24 : Dumbo is a small elephant
+60 : Smith wrote to a representative every week
+12 : some great tenors like popular music
+120 : ITEL delivered reports late in 1993
+120 : Smith was impressed by the system's performance
+24 : every Ancient Greek was a noted philosopher
+24 : at least a few committee members are from Sweden
+12 : is Dumbo a small animal
+36 : did Smith discover new species
+360 : can every Canadian resident travel freely within Europe
+12 : there are few committee members from southern Europe
+600 : can most Europeans travel freely within Europe
+12 : the ITEL-XZ is fast
+12 : both leading tenors are indispensable
+12 : ITEL has expanded since 1992
+144 : two women work in the sales department
+216 : two machines have been removed
+168 : did Smith sign the cover page of R-9510000003
+102 : does every European have the right to live in Europe
+24 : few great tenors are poor
+84 : did APCOM sign the contract Friday , 13th
+96 : software faults were blamed for the system failure
+2232 : in two years Smith owned a chain of businesses
+84 : does either commissioner spend a lot of time at home
+120 : are there Italian tenors who want to be great
+4608 : Jones claimed he had costed his own proposal
+264 : APCOM has a more important customer than ITEL
+16272 : ITEL won more orders than APCOM lost [..]
+60 : are there great tenors who are German
+24 : at least a few committee members are from Scandinavia
+240 : clients at the demonstration were impressed by the system's performance
+12 : the sales department rents a line from BT
+18 : did Bill write a report
+192 : there are really ambitious tenors who are Italian
+18 : did Smith discover a new species
+108 : have eight machines been removed
+24 : Smith was present
+240 : Smith was present after Jones left
+12 : Bill owns a car
+12 : is Mickey a large animal
+540 : do the residents of major western countries have the right to live in Europe
+100000 : if it was suggested that Bill and Frank's boss should go together , was it suggested that Carl and Alan's wife should go together
+288 : Smith took five laptop computers to the meeting
+24 : many delegates obtained results from the survey
+0 : an Irishman won the Nobel prize for literature
+19200 : she took a taxi to the station and caught the first train to Luxembourg
+138 : both commissioners used to be leading businessmen
+18 : did APCOM lose some orders
+6 : has John spoken to Mary
+15360 : John said Mary wrote a report , and Bill did [..] too
+24 : will Smith make a poor stock market trader
+228 : Helen saw the chairman of the department answer the phone
+12 : Mary is female
+24 : Jones has a company car
+16128 : did Smith own a chain of business for more than two years
+2832 : Smith was writing a report before Jones was writing a report
+72 : do two women work in the sales department
+12 : Smith signed the cover page
+18 : did Smith chair a meeting
+9360 : Smith ran his own business for two years
+816 : all people who are from Portugal are from southern Europe
+3504 : two out of ten machines are missing
+72 : did everyone at the meeting vote for a new chairman
+288 : there are tenors who will contribute their fees to charity
+60 : the PC-6082 is faster than every ITEL computer
+144 : ten machines were here yesterday
+0 : Mary's story lasted as long as Jones' updating the program
+24 : Kim is a clever person
+12 : Mary has a workstation
+48 : neither female commissioner spends a lot of time at home
+24 : all elephants are large animals
+60 : Smith discovered a new species in 1992
+168 : did ITEL make a loss in 1993
+48 : Smith delivered a report to ITEL
+384 : and she delivered them a project proposal
+3360 : at least three male commissioners spend time at home
+12 : some great tenors are Swedish
+12 : Bill spoke to Mary
+8472 : did Smith own a chain of business for two years
+36 : does Jones have a company car
+1320 : did Jones swim to the shore after Smith swam to the shore
+24 : Dumbo is a large animal
+84 : did Smith write a report for an hour
+96 : Bill [..] by train
+0 : a lawyer signed every report , and so did an auditor
+264 : did John find Mary before John found Bill
+270 : no Scandinavian delegate finished the report on time
+29376 : Smith was running his own business in two years
+24 : a few committee members are from Sweden
+432 : Jones swam to the shore after Smith swam to the shore
+96 : Smith signed the cover page of R-9510000003
+216 : eight machines have been removed
+12 : in March 1993 APCOM founded ITEL
+96 : Jones graduated in March and has been employed ever since
+0 : an Irishman won a Nobel prize
+96 : John went to Paris by car
+24 : many great tenors are German
+48 : was Smith in Paris on the 7th of May , 1995
+48 : each Italian tenor wants to be great
+100000 : it is the case that Jones is not [..] and never will be allowed to write his memoirs
+1992 : all the people who were at the meeting voted for a new chairman
+60 : there are really great tenors who are modest
+100000 : most Europeans who are resident outside Europe can travel freely within Europe
+960 : Jones claimed Smith had costed Smith's proposal
+9216 : no one can gamble when he is broke
+96 : Smith owned a chain of business
+100000 : since APCOM bought its present office building it has been paying mortgage interest on it for more than 10 years
+18 : did Smith leave the meeting
+12 : John has spoken to Mary
+72 : six accountants signed the contract
+12 : neither leading tenor comes cheap
+24 : Jones has been unemployed in the past
+144 : Smith lost his temper
+276 : Jones is the chairman of ITEL
+108 : Smith wrote it in 1992
+72 : Smith will go to Florence twice in the coming year
+12 : did Smith either see Jones sign the contract or see Jones cross out the crucial clause
+60 : was every representative and every client at the meeting
+12 : every report has a cover page
+1560 : Smith discovered new species for two years
+2400 : one of the commissioners spends a lot of time at home
+6 : is Dumbo four-legged
+72 : did both commissioners used to be leading businessmen
+60 : there are great tenors who are British
+432 : John wants to know how many women work part time
+0 : Smith had been travelling the day before she arrived in Katmandu
+48 : are there tenors who will take part in the concert
+18 : does Bill own a car
+366 : was Mary's workstation used
+36 : did many delegates obtain interesting results from the survey
+360 : ITEL sold 3000 more computers than APCOM
+36 : ITEL finished MTALK in 1993
+36 : Fido is not a small animal
+6912 : Smith left the meeting before he lost his temper
+288 : did Bill go to Berlin by train
+1620 : do the residents of member states have the right to live anywhere in Europe
+504 : did ITEL win at least eleven orders
+36 : John found Mary before Bill
+210 : both commissioners used to be in business
+12 : Bill owns a blue car
+24 : every Swede is a Scandinavian
+198 : did Smith discover it in 1992
+168 : did any delegates finish the survey on time
+18 : did several delegates get the results published
+48 : ITEL sent a progress report in July 1994
+96 : Bill went to Paris by train
+46 : but only one woman
+0 : she also delivered them an invoice
+90 : do forty five women work part time
+2832 : Jones was writing a report after Smith was writing a report
+60 : John's colleagues hated the meeting
+18 : does Bill own a red car
+24 : Mickey is a small animal
+168 : did the chairman read out every item on the agenda
+15 : Smith left
+1536 : are the students going to Paris by train
+100000 : John is going to Paris by car , and the students [..] by train
+12 : several great tenors are British
+12 : Smith discovered a new species
+72 : did both commissioners used to be businessmen
+1152 : Smith represents his company and so does Jones
+60 : was Smith impressed by the system's performance
+96 : Bill went to Berlin by car
+240 : Smith had finished writing the report by 11 am
+66 : did John speak to Mary on Friday
+60 : Smith discovered a new species in 1991
+24 : at least a few female committee members are from Scandinavia
+0 : does everyone who starts gambling seriously stop the moment he is broke
+48 : Jones swam after Smith swam
+60 : Mary represents John's company
+96 : no delegate finished the report on time
+1080 : the residents of member states have the right to live in Europe
+3936 : Bill knows why John had his paper accepted
+1728 : do most companies that own a computer have a service contract for it
+48 : ITEL won twice as many orders than APCOM
+144 : did Smith live in Birmingham for a year
+24 : few female committee members are from southern Europe
+48 : Smith lived in Birmingham for exactly a year
+24 : Smith lived in Birmingham in 1992
+24 : Mickey is a large animal
+100000 : if it was suggested that Bill , Frank and Frank's boss should go together , was it suggested that Carl , Alan and Alan's wife should go together
+42 : Smith arrived in Paris on the 5th of May , 1995
+540 : do the residents of western countries have the right to live in Europe
+1080 : the residents of western countries have the right to live in Europe
+120 : ITEL never delivers reports late
+1440 : did Jones claim Smith had costed Smith's proposal
+36 : John spoke to Mary on Friday
+0 : every mammal is an animal
+108 : they hated it
+6 : is Mickey small
+18 : did some accountants attend the meeting
+216 : did Smith run his own business
+12 : Jones swam to the shore
+3456 : but some people know that they have been asleep after they have been asleep
+24 : Dumbo is a small animal
+2400 : one of the female commissioners spends a lot of time at home
+4032 : everyone who starts gambling seriously stops at the moment when he is broke
+264 : does John want to know which men work part time
+12 : Smith attended a meeting
+12 : Kim is clever
+120 : ITEL won more orders than the APCOM contract
+672 : do at most ten commissioners spend a lot of time at home
+24 : Bug # 32-985 is a known software fault
+0 : everyone who starts gambling seriously stops the moment he is broke
+3360 : does MFI have a service contract for all its computers
+24 : was every Ancient Greek a noted philosopher
+24 : the Ancient Greeks were all noted philosophers
+576 : if Smith and Anderson did not sign the contract , Jones signed the contract
+24 : few committee members are from southern Europe
+12 : John owns a fast red car
+468 : Smith was running it in 1992
+6 : are both leading tenors indispensable
+57072 : all people who are resident in Europe can travel freely within Europe
+2832 : Jones was writing a report before Smith was writing a report
+3072 : John went to Paris by car , and Bill [..] to Berlin
+12 : no accountants attended the meeting
+18 : did Smith write a report
+270 : did every inhabitant of Cambridge vote for a Labour MP
+576 : some people discover that they have been asleep
+18 : does the sales department rent a line from BT
+384 : Jones claimed Smith had costed Jones' proposal
+168 : there is a car that John and Bill own
+19584 : Smith saw Jones sign the contract and [..] his secretary make a copy
+0 : two years from now will Smith have been to Florence at least four times
+7200 : can all residents of the North American continent travel freely within Europe
+348 : was there one auditor who signed all the reports
+36 : Bill spoke to Mary on Monday
+528 : Smith wrote a report in one hour
+150 : did Jones leave after Smith left
+72 : ITEL won twenty orders
+12 : John bought a car
+504 : did Smith take five laptop computers to the meeting
+300 : the ITEL-ZX is slower than 500 MIPS
+1056 : the people who were at the meeting all voted for a new chairman
+2856 : it is false that ITEL won the contract in 1992
+36 : John spoke to Mary on Monday
+66 : did several delegates get the results published in major national newspapers
+66 : did Bill speak to Mary at four o'clock
+24 : every representative was at the meeting
+8976 : Smith owned a chain of business for more than two years
+402 : and forty five women
+8496 : were most clients at the demonstration impressed by the system's performance
+60 : all Europeans have the right to live in Europe
+120 : ITEL won more orders than APCOM
+4704 : Smith owned a chain of business for two years
+72 : Jones signed two contracts
+960 : all residents of member states are individuals
+156 : ITEL was building MTALK in 1993
+90 : does Mary represent John's company
+24 : a Swede won a Nobel prize
+22464 : at most two tenors will contribute their fees to charity
+108 : did six accountants sign the contract
+300 : the PC-6082 is faster than 500 MIPS
+12 : GFI owns several computers
+4608 : did Smith leave the house before she took a taxi to the station
+6 : will Bill speak to Mary
+828 : Bill owns one too
+12 : Smith wrote a report
+30 : did ITEL exist in 1992
+60 : Mickey is smaller than Dumbo
+1440 : Smith ran his own business for a year
+102 : does each European have the right to live in Europe
+240 : all Europeans can travel freely within Europe
+0 : it is the case that Jones is not and will never be allowed to write his memoirs
+24 : Mickey is a large mouse
+100000 : if it was suggested that Bill and Frank should go together , was it suggested that Carl and Alan should go together
+18 : did Bill speak to Mary
+2496 : Smith left the house before she took a taxi to the station
+192 : are there really ambitious tenors who are Italian
+252 : it lasted 2 days
+48 : neither commissioner spends time at home
+360 : can each Canadian resident travel freely within Europe
+192 : John said Bill had hurt himself
+2880 : does everyone who starts gambling seriously continue until he is broke
+1200 : most Europeans can travel freely within Europe
+780 : every inhabitant of Cambridge voted for a Labour MP
+30 : did Smith live in Birmingham
+912 : the students are going to Paris by train
+12 : Bill owns a fast one
+12 : Dumbo is four-legged
+18 : did no accountant attend the meeting
+72 : she chaired it
+48 : Smith , Anderson and Jones met
+144 : every representative and client was at the meeting
+288 : Jones has more than one company car
+288 : someone said John had been hurt
+27648 : last week I already knew that when in a month's time , Smith would discover that she had been duped , she would be furious
+360 : can all Canadian residents travel freely within Europe
+60 : there are great tenors who are German
+18 : does Bill own a fast red car
+90 : Smith left before Jones left
+12 : Bill has spoken to Mary
+18 : did no delegate finish the report
+24 : the PC-6082 is as fast as the ITEL-XZ
+4704 : when Smith arrived in Katmandu she had been travelling for three days
+14496 : every individual who has the right to live in Europe can travel freely within Europe
+100000 : Bill suggested to Frank's boss that they should go to the meeting together , and Carl [..] to Alan's wife
+3 : on Friday
+168 : John is a cleverer politician than Bill
+100000 : can most Europeans who are resident outside Europe travel freely within Europe
+18 : did any accountants attend the meeting
+12 : Bill owns a blue one
+240 : ITEL maintains all the computers that GFI owns
+408 : was there a group of people that met
+48 : Smith is likely to make a poor stock market trader
+288 : John said Bill had been hurt
+12 : ITEL expanded in 1993
+648 : were ten machines here yesterday
+192 : was Jones present after Smith was present
+30 : is John fatter than Bill
+24 : Fido is a large animal
+2856 : it is true that ITEL won the contract in 1992
+14496 : every person who has the right to live in Europe can travel freely within Europe
+216 : they put them in the lobby
+7584 : the system failure was blamed on one or more software faults
+2016 : MFI has a service contract for all its computers
+144 : Jones left after Anderson was present
+18 : does John have a diamond
+240 : each European can travel freely within Europe
+24 : Smith represents Jones' company
+48 : is the PC-6082 faster than the ITEL-XZ
+432 : John wants to know how many men work part time
+256 : and Bill did [..] at five o'clock
+24 : today is the 15th of May , 1995
+4080 : can each resident of the North American continent travel freely within Europe
+96 : the chairman read out the items on the agenda
+240 : the PC-6082 is faster than the ITEL-ZX and the ITEL-ZY
+24 : a company director awarded himself a large payrise
+12 : are there few committee members from southern Europe
+288 : Smith spent two hours discovering new species
+60 : are there great tenors who are Swedish
+96 : ITEL made a loss in 1993
+150 : did Jones leave before Smith left
+23232 : APCOM has a more important customer than ITEL has [..]
+100000 : John wants to know how many men work part time , and which [..] [..]
+12 : some delegates finished the survey
+36 : does Jones represent Jones' company
+24 : a Scandinavian won a Nobel prize
+96 : Bill said Peter wrote a report
+0 : it will be the case that in a few weeks Smith will discover that she has been duped; and she will be furious
+24 : is Smith likely to make a poor stock market trader
+60 : are there really great tenors who are modest
+48 : ITEL won the contract in 1992
+384 : Jones was present after Smith was present
+102 : did Smith discover a new species in 1992
+12 : some accountant attended the meeting
+432 : Smith and Jones put two machines in the lobby
+144 : Mary represents her own company
+144 : Smith ran his own business
+48 : ITEL has a factory in Birmingham
+60 : John is fatter than Bill
+3552 : Bill is going to [..]
+108 : have two machines been removed
+12 : a company director has awarded and been awarded a payrise
+672 : do at most ten commissioners spend time at home
+864 : they are on her desk
+30 : is John cleverer than Bill
+6 : is Mary female
+720 : every Canadian resident can travel freely within Europe
+15 : Jones left
+96 : has APCOM been paying mortgage interest for a total of 15 years or more
+47232 : Smith spent more than two years running his own business
+144 : no representative took less than half a day to read the report
+144 : Mary used her workstation
+6912 : did Jones claim he had costed his own proposal
+3228 : Smith discovered many new species in two hours
+780 : Jones revised the contract before Smith did [..]
+12 : Bill bought a car
+72 : Smith has been to Florence twice in the past
+36 : did a Scandinavian win a Nobel prize
+24816 : Smith saw Jones sign the contract or [..] [..] cross out the crucial clause
+24 : all committee members are people
+672 : do at least three male commissioners spend time at home
+270 : there are some reports from ITEL on Smith's desk
+24 : Kim is a clever politician
+168 : did some delegates finish the survey on time
+12 : the conference started on July 4th , 1994
+6 : is the PC-6082 fast
+336 : at least three tenors will take part in the concert
+24 : is there anyone whom Helen saw answer the phone
+8 : and on Friday
+12 : Bill owns a slow one
+12 : John has a genuine diamond
+100000 : if it was suggested that Bill , Frank and Frank's boss should go together , it was suggested that Carl , Alan and Alan's wife should go together
+12 : Mickey is small
+12 : Bill owns a fast car
+72 : six lawyers signed the contract
+12 : Jones signed the contract
+132 : did both female commissioners used to be in business
+12 : Smith lived in Birmingham
+30 : is Mickey larger than Dumbo
+24 : Smith saw Jones' heart beat
+12 : Jones revised the contract
+7128 : ITEL has sent most of the reports Smith needs
+96 : ITEL has made a loss since 1992
+228 : Smith saw the chairman of ITEL sign the contract
+24 : many British delegates obtained interesting results from the survey
+100000 : most Europeans who are resident in Europe can travel freely within Europe
+5280 : the residents of major western countries can travel freely within Europe
+12096 : John said that Mary wrote a report , and that Bill did [..] too
+0 : did Smith deliver a report , an invoice and a project proposal to ITEL
+192 : Smith was running a business in 1991
+48 : neither commissioner spends a lot of time at home
+5904 : does Bill know why John had his paper accepted
+960 : Jones was unemployed at some time before he graduated
+48 : Smith wrote a novel in 1992
+24 : John is a university student
+1800 : every executive who had a laptop computer brought it to take notes at the meeting
+12 : the PC-6082 is fast
+1152 : everyone who starts gambling seriously continues until he is broke
+672 : no one gambling seriously stops until he is broke
+24 : a few committee members are from Scandinavia
+720 : all Canadian residents can travel freely within Europe
+18 : did ITEL win some orders
+12 : no delegate finished the report
+35424 : did Smith spend two years running his own business
+14 : and women
+2040 : John had his paper accepted
+150 : did Smith leave after Anderson left
+24 : Fido is a small animal
+14472 : no two representatives have read it at the same time
+48 : was ITEL in Birmingham in 1993
+216 : did ITEL win more than one order
+144 : did Bill say Mary wrote a report
+4032 : no one who starts gambling seriously stops until he is broke
+1728 : if Jones signed the contract , his heart was beating
+48 : is the PC-6082 faster than the ITEL-ZX
+18 : did Smith see Jones sign the contract
+0 : is it the case that Jones is not and will never be allowed to write his memoirs
+12 : is Fido a small animal
+96 : Smith had left the house at a quarter past five
+168 : did Smith own a chain of business
+72 : did Smith live in Birmingham in 1992
+24 : Smith is a university graduate
+1440 : Smith knew that ITEL had won the contract in 1992
+384 : Jones was present before Smith was present
+48 : in 1994 ITEL sent a progress report every month
+12 : Jones signed another contract
+2640 : can the residents of member states travel freely within Europe
+12 : Smith swam
+48 : Smith wrote a novel in 1991
+36 : did Smith see Jones' heart beat
+780 : Smith revised the contract before Jones did [..]
+12 : Bill wrote a report
+384 : Smith was present after Jones was present
+6 : has a company director awarded and been awarded a payrise
+100000 : before APCOM bought its present office building , it had been paying mortgage interest on the previous one for 8 years
+264 : Bill has [..]
+768 : if John wrote a report , then Bill did [..] too
+768 : John needed to buy a car , and Bill did [..]
+232 : that is , there was one lawyer who signed all the reports
+100000 : APCOM has a more important customer than ITEL is [..]
+10560 : at most ten female commissioners spend time at home
+1728 : when Jones signed the contract , his heart was beating
+432 : does Jones have more than one company car
+12 : some Italian tenors are great
+24 : many delegates obtained interesting results from the survey
+24 : R-9510000003 is a report
+5280 : the residents of western countries can travel freely within Europe
+12 : every department rents a line from BT
+660 : most Europeans are resident in Europe
+7200 : Smith wrote his first novel in 1991
+12 : no accountant attended the meeting
+36 : ITEL owned APCOM in 1990
+12 : the PC-6082 is slow
+48 : ITEL won a contract in 1993
+8904 : MFI is a customer that owns exactly one computer
+84 : did ITEL send a progress report in July 1994
+48 : Smith , Jones and several lawyers signed the contract
+24 : all mice are small animals
+480 : was Jones unemployed at some time before he graduated
+672 : do at least three commissioners spend time at home
+108 : they rent them from BT
+24 : all legal authorities are law lecturers
+30 : do all Europeans have the right to live in Europe
+90 : Smith left after Jones left
+96 : some Irish delegates finished the survey on time
+12 : some accountants attended the meeting
+432 : Smith swam to the shore before Jones swam to the shore
+60 : Jones represents Smith's company
+288 : did Bill go to Paris by train
+432 : they have service contracts for them
+66 : did ITEL finish MTALK in 1993
+432 : did Smith spend more than two hours writing the report
+48 : Smith left the house at a quarter past five
+216 : did Smith lose his temper
+72 : Smith signed two contracts
+60 : Smith discovered a new species for an hour
+100000 : if it was suggested that Bill and Frank's boss should go together , it was suggested that Carl and Alan should go together
+60 : the PC-6082 is slower than the ITEL-XZ
+90 : Jones left before Smith left
+180 : forty five women work part time
+168 : clients at the demonstration were all impressed by the system's performance
+132 : APCOM sold exactly 2500 computers
+90 : are at least a few committee members from Scandinavia
+234 : was Smith running it in 1992
+18 : did Mary use a workstation
+24 : all Europeans are people
+7200 : Smith wrote his first novel in 1992
+120 : ITEL always delivers reports late
+240 : did ITEL deliver reports late in 1993
+180 : do some people discover that they have been asleep
+216 : MFI is a customer that owns several computers
+18 : does Bill own a blue car
+24 : Smith either saw Jones sign the contract or saw Jones cross out the crucial clause
+18 : did John hate the meeting
+1344 : at least three commissioners spend a lot of time at home
+24 : Smith discovered new species
+1152 : while Jones was updating the program , Mary came in and told him about the board meeting
+0 : Smith delivered a report , an invoice and a project proposal to ITEL
+216 : did Smith spend two hours writing the report
+12 : a few great tenors sing popular music
+24 : the Ancient Greeks were noted philosophers
+60 : the PC-6082 is faster than the ITEL-ZX
+3456 : most companies that own a computer have a service contract for it
+39072 : does APCOM have a more important customer than ITEL has [..]
+1152 : every committee has a chairman appointed by members of the committee
+84 : did ITEL win a contract in 1993
+504 : it took the representatives more than a week to read the report
+0 : Jones is an APCOM manager
+120 : leading tenors who are excellent are indispensable
+12 : John has a diamond
+24 : few committee members are from Portugal
+2496 : Smith had been travelling on the day before she arrived in Katmandu
+216 : does Mary represent her own company
+264 : are there Italian men who want to be a great tenor
+12 : APCOM won some orders
+90 : they were all here yesterday
+144 : every student used her workstation
+108 : is Pavarotti a leading tenor who comes cheap
+1344 : did Smith revise the contract before Jones did [..]
+12 : is Fido a large animal
+18432 : John went to Paris by car , and Bill [..] by train to Berlin
+24 : since 1992 ITEL has made a loss
+12 : Jones swam
+8160 : every resident of the North American continent can travel freely within Europe
+60 : the PC-6082 is faster than the ITEL-XZ
+0 : Smith is an executive who owns five different laptop computers
+6 : so did Bill
+90 : did John's colleagues hate the meeting
+66 : did several Portuguese delegates get the results published in major national newspapers
+100000 : if it was suggested that Bill and Frank should go together , it was suggested that Carl and Alan should go together
+66 : did ITEL own APCOM in 1990
+36 : Bill spoke to Mary at five o'clock
+12 : each department has a dedicated line
+72 : APCOM lost ten orders
+3360 : at least three commissioners spend time at home
+0 : will it be the case that in a few weeks Smith will discover that she has been duped; and will she be furious
+16416 : ICM is one of the companies and owns 150 computers
+90 : Jones left after Smith left
+72 : several delegates got the results published in major national newspapers
+120 : can all Europeans travel freely within Europe
+18 : did John buy a car
+90 : does Jones represent Smith's company
+24 : Smith lived in Birmingham in 1991
+90 : Jones left before Anderson left
+168 : did any Irish delegates finish the survey on time
+48 : Smith and Jones left the meeting
+48 : Smith lived in Birmingham for a year
+2448 : did Smith run his own business for a year
+36 : Jones was writing a report
+120 : Smith started writing the report at 8 am
+54 : did ITEL sell 5500 computers
+48 : Smith , Jones and Anderson signed the contract
+6 : is the ITEL-XZ fast
+84 : did Smith write a novel in 1992
+600 : one of the leading tenors is Pavarotti
+8160 : each resident of the North American continent can travel freely within Europe
+1944 : every Canadian resident is a resident of the North American continent
+12 : Smith left the meeting
+0 : had Smith been travelling the day before she arrived in Katmandu
+18 : did Bill buy a car
+73728 : Smith claimed he had costed his proposal and so did Jones
+96 : some delegate finished the report on time
+100000 : if it was suggested that Bill and Frank's boss should go together , was it suggested that Carl and Alan should go together
+1536 : he is appointed by its members
+84 : Smith signed one contract
+96 : Bill went to Berlin by train
+72 : it is now 1996
+30 : is Dumbo larger than Mickey
+36 : Bill spoke to Mary at four o'clock
+60 : are there great tenors who are British
+12 : Smith chaired a meeting
+9216 : John wrote a report , and Bill said Peter did [..] too
+12 : yesterday APCOM signed the contract
+432 : did John say Bill had been hurt
+288 : did Bill go to Berlin by car
+36 : there are sixteen representatives
+24 : John is a successful former university student
+342 : did Smith see the chairman of ITEL sign the contract
+15 : have the students spoken to Mary
+12 : Bill will speak to Mary
+70848 : did Smith spend more than two years running his own business
+60 : there are great tenors who sing popular music
+24 : every European is a person
+120 : the PC-6082 is faster than the ITEL-ZX or the ITEL-ZY
+144 : no student used her workstation
+48 : university graduates make poor stock-market traders
+1620 : Bill doesn't know why [..]
+18 : does every department rent a line from BT
+144 : ITEL won more than one order
+12 : is John a university student
+24 : some Italian men are great tenors
+4080 : can every resident of the North American continent travel freely within Europe
+3360 : at least three female commissioners spend time at home
+8 : and to Sue
+72 : APCOM won ten orders
+12 : in 1993 ITEL delivered reports
+432 : did anyone say John had been hurt
+24 : all APCOM managers have company cars
+12 : ITEL won some orders
+408 : there was a group of people that met
+108 : did six lawyers sign the contract
+48 : there are tenors who will take part in the concert
+24 : all fat legal authorities are fat law lecturers
+0 : last week I already knew that when , in a month's time , Smith would discover that she had been duped she would be furious
+18 : does Bill own a slow red car
+36 : ITEL maintains them
+216 : did Mary use her workstation
+48 : Smith was in Paris on the 7th of May , 1995
+24 : Jones was present
+2832 : Smith was writing a report after Jones was writing a report
+84 : everyone at the meeting voted for a new chairman
+100000 : when Jones got his job at the CIA , he knew that he would never be allowed to write his memoirs
+24 : the really ambitious tenors are Italian
+264 : did John find Mary before Bill found Mary
+1416 : was Jones writing a report before Smith was writing a report
+864 : if Smith and Anderson did not sign the contract , did Jones sign the contract
+144 : John found Mary before John found Bill
+180 : Mary's workstation was used
+18 : did ITEL win the APCOM contract
+18 : did John speak to Sue
+10752 : John said that Mary wrote a report , and said that Bill did [..] too
+864 : did it take the representatives more than a week to read the report
+102 : did ITEL develop a new editor in 1993
+100000 : she finished [..] before he did [..]
+96 : John said Bill wrote a report
+498 : the inhabitants of Cambridge voted for a Labour MP
+150 : did Smith leave after Jones left
+24 : today is Saturday , July 14th
+144 : Smith spent two hours writing the report
+24 : every committee has a chairman
+150 : did Smith leave before Anderson left
+100000 : if it was suggested that Bill and Frank should go together , it was suggested that Carl and Alan's wife should go together
+23616 : Smith spent two years running his own business
+504 : each of the other 99 companies owns one computer
+138 : are few female committee members from southern Europe
+90 : Smith left before Anderson left
+1248 : Bill spoke to everyone that John did [..]
+192 : there are great tenors who are Italian
+100000 : if it was suggested that Bill and Frank should go together , was it suggested that Carl and Alan's wife should go together
+672 : do at least three commissioners spend a lot of time at home
+108 : Smith discovered it in 1992
+216 : Pavarotti is a leading tenor who comes cheap
+12 : no really great tenors are modest
+6 : is Kim clever
+46176 : every individual who has the right to live anywhere in Europe can travel freely within Europe
+24 : all Italian men want to be a great tenor
+168 : is there a car that John and Bill own
+120 : can each European travel freely within Europe
+456 : Smith wrote a report for two hours
+24 : the conference was over on July 8th , 1994
+50160 : exactly two lawyers and three accountants signed the contract
+60 : there are great tenors who are Swedish
+576 : did Jones claim Smith had costed Jones' proposal
+24 : there is someone whom Helen saw answer the phone
+60 : each European has the right to live in Europe
+6144 : John went to Paris by car , and Bill [..] by train
+48 : Smith wrote a report for an hour
+60 : ITEL developed a new editor in 1993
+132 : did both commissioners used to be in business
+12 : Smith revised the contract
+1536 : John wanted to buy a car , and he did [..]
+18 : did any accountant attend the meeting
+84 : are few committee members from southern Europe
+672 : do at most ten female commissioners spend time at home
+192 : was Jones present before Smith was present
+24 : all competent legal authorities are competent law lecturers
+456 : Smith wrote a report in two hours
+144 : did Bill say Peter wrote a report
+12 : APCOM lost some orders
+54 : was the conference over on July 8th , 1994
+12 : Bill owns a red car
+18 : did no accountants attend the meeting
+192 : APCOM has been paying mortgage interest for a total of 15 years or more
+84 : was Bug # 32-985 blamed for the system failure
+72 : five men work part time
+60 : ITEL has developed a new editor since 1992
+14400 : all residents of the North American continent can travel freely within Europe
+36 : does Smith represent Jones' company
+72 : Bill didn't [..]
+384 : Smith was present after Anderson was present
+84 : does neither commissioner spend time at home
+816 : all people who are from Sweden are from Scandinavia
+336 : ITEL won at least eleven orders
+1152 : John and his colleagues went to a meeting
+1536 : Smith took a machine on Tuesday , and Jones took a machine on Wednesday
+120 : did Jones swim after Smith swam
+1080 : the residents of major western countries have the right to live in Europe
+288 : Smith spent more than two hours writing the report
+336 : did any Scandinavian delegate finish the report on time
+60 : John is cleverer than Bill
+10560 : at most ten commissioners spend time at home
+360 : does ITEL maintain all the computers that GFI owns
+84 : does either female commissioner spend a lot of time at home
+1572 : are most Europeans resident in Europe
+5760 : no one who is gambling seriously stops until he is broke
+24 : Jones represents Jones' company
+128 : then she took a taxi to the station
+12 : John owns a red car
+7176 : was the system failure blamed on one or more software faults
+1152 : John represents his company and so does Mary
+20160 : all residents of major western countries are residents of western countries
+48 : two years from now Smith will have been to Florence at least four times
+120 : ITEL currently has a factory in Birmingham
+120 : can every European travel freely within Europe
+100000 : does APCOM have a more important customer than ITEL is [..]
+144 : are at least a few female committee members from Scandinavia
+432 : did Smith and Jones sign two contracts
+384 : Smith was present before Jones was present
+270 : are there some reports from ITEL on Smith's desk
+0 : did an Irishman win a Nobel prize
+60 : are there great tenors who sing popular music
+18 : does Bill own a fast car
+30 : is Mickey smaller than Dumbo
+432 : did Smith spend two hours discovering new species
+96 : Bug # 32-985 was blamed for the system failure
+780 : Jones revised the contract after Smith did [..]
+120 : most great tenors are Italian
+18 : did John speak to Mary
+12 : there are few committee members from Portugal
+36 : Fido is not a large animal
+12 : ITEL existed in 1992
+144 : when they opened the M25 , traffic increased
+96 : every representative or client was at the meeting
+96 : every Italian man wants to be a great tenor
+12 : Mary used a workstation
+1632 : the students have [..] too
+24 : John is a former university student
+60 : the PC-6082 is faster than any ITEL computer
+66 : did Bill speak to Mary at five o'clock
+288 : Smith and Jones signed two contracts
+198 : did Smith write it in 1992
+1440 : Smith believed that ITEL had won the contract in 1992
+432 : did Smith and Jones put two machines in the lobby
+780 : Smith revised the contract after Jones did [..]
+240 : every European can travel freely within Europe
+18 : did Jones sign the contract
+12 : John owns a car
+6 : has Bill spoken to Mary
+5760 : at most ten commissioners spend a lot of time at home
+12 : John spoke to Mary
+168 : Smith lived in Birmingham for two years
+36 : the sales department rents it from BT
+24 : Dumbo is a four-legged animal
+88704 : it does not have service contracts for any of its computers
+2304 : does every committee have a chairman appointed by members of the committee
+528 : is there a representative that Smith wrote to every week
+792 : does John want to know how many women work part time
+12 : are there few committee members from Portugal
+108 : did ITEL win twenty orders
+0 : there was an Italian who became the world's greatest tenor
+96 : some delegates finished the survey on time
+24 : Mary is a student
+66 : did Bill speak to Mary on Monday
+285 : just one accountant attended the meeting
+780 : Smith discovered a new species in two hours
+48 : is the PC-6082 slower than the ITEL-XZ
+120 : ITEL managed to win the contract in 1992
+0 : did Mary's story last as long as Jones' updating the program
+120 : there are Italian tenors who want to be great
+36 : did many British delegates obtain interesting results from the survey
+90 : Smith left after Anderson left
+528 : there is a representative that Smith wrote to every week
+18 : did APCOM win some orders
+24 : all law lecturers are legal authorities
+24 : John is a former successful university student
+900 : every customer who owns a computer has a service contract for it
+36 : John spoke to Mary on Thursday
+168 : John is a fatter politician than Bill
+60 : had Smith finished writing the report by 11 am
+270 : some Scandinavian delegate finished the report on time
+1956 : ITEL won more orders than APCOM did [..]
+336 : the chairman of the department is a person
+144 : twenty men work in the sales department
+12 : the students have spoken to Mary
+36 : ITEL owned APCOM from 1988 to 1992
+288 : Smith spent two hours discovering the new species
+1344 : did Smith revise the contract after Jones did [..]
+72 : several Portuguese delegates got the results published in major national newspapers
+6 : is John successful
+30 : are all fat legal authorities fat law lecturers
+1416 : was Jones writing a report after Smith was writing a report
+18 : does Mary have a workstation
+0 : was there an Italian who became the world's greatest tenor
+144 : John wants to know which men work part time
+60 : Dumbo is larger than Mickey
+12 : Smith lost some files
+12 : Bill owns a fast red car
+144 : did John say Bill wrote a report
+18 : did some accountant attend the meeting
+96 : the chairman read out every item on the agenda
+18 : there are 100 companies
+768 : John is a man and Mary is a woman
+30 : are all competent legal authorities competent law lecturers
+0 : did an Irishman win the Nobel prize for literature
+84 : did ITEL win the contract in 1992
+168 : ITEL won the contract from APCOM in 1993
+90 : are at least a few committee members from Sweden
+18 : did Jones leave the meeting

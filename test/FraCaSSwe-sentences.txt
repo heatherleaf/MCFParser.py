@@ -1,0 +1,825 @@
+192 : några framstående tenorer är svenska
+12 : är ITEL-XZ:an snabb
+96 : Bill äger en långsam röd bil
+2304 : och hon gav dem ett projektförslag
+7296 : fick flera portugisiska delegater resultaten publicerade i större nationella tidningar
+12 : talade Bill med Mary
+13440 : var Jones närvarande innan Smith var närvarande
+192 : Smith och Jones lämnade mötet
+1536 : kan alla européer resa fritt inom Europa
+576 : ITEL lämnar alltid rapporter sent
+1644 : högst tio kvinnliga ombud tillbringar tid hemma
+100000 : Smith skrev en rapport efter det att Jones skrev en rapport
+132 : endast en bokförare närvarade vid mötet
+192 : Smith drev sin egna affärsverksamhet
+96 : John har en diamant
+96 : ITEL vann kontraktet 1992
+96 : drev Smith sin egna affärsverksamhet
+1644 : minst tre manliga ombud tillbringar tid hemma
+24 : ITEL servar dem
+864 : inget av ombuden tillbringar tid hemma
+768 : ordföranden läste upp varje punkt på dagordningen
+36 : expanderade ITEL 1993
+336 : 1994 skickade ITEL en statusrapport varje månad
+144 : Smith skrev det 1992
+2304 : Smith visste att ITEL hade vunnit kontraktet 1992
+144 : Smith ledde ett möte
+144 : ett fåtal kommittémedlemmar är från Skandinavien
+5376 : granskade Smith kontraktet innan Jones gjorde [..]
+624 : finns det verkligt framstående tenorer som är blygsamma
+48 : äger Bill en röd bil
+3456 : och Bill gjorde [..] klockan fem
+432 : Smith skrev en roman 1992
+96 : Bill äger en snabb röd bil
+120 : Smith förlorade några filer
+47520 : upptäcker några människor att de har varit sovande
+480 : varje fyrbent däggdjur är ett fyrbent djur
+48 : undertecknade APCOM kontraktet fredagen den 13:e
+96 : Jones skrev en rapport
+2688 : Smith skrev en rapport i två timmar
+12 : är båda de ledande tenorerna oumbärliga
+48 : ITEL har expanderat sedan 1992
+72 : undertecknade sex jurister kontraktet
+24192 : MFI har ett servicekontrakt för alla sina datorer
+192 : ingen skandinavisk delegat slutförde rapporten i tid
+480 : har en företagsledare tilldelat och tilldelats en löneförhöjning
+1200 : bodde Smith i Birmingham i ett år
+576 : ITEL lyckades att vinna kontraktet 1992
+19200 : John är en man och Mary är en kvinna
+2304 : varje representant och varje klient var på mötet
+384 : är Smith sannolik att bli en dålig aktiehandlare
+1086 : invånarna i Cambridge röstade för en Labour-ledamot
+96 : Bill äger en blå en
+24 : representerar Jones Smiths företag
+96 : förlorade APCOM några order
+24 : Jones simmade
+216 : Smith undertecknade ett kontrakt
+72 : de ställde dem i vestibulen
+48 : Smith representerar Jones företag
+192 : sade John att Bill hade skadats
+100000 : var Smith närvarande efter det att Anderson var närvarande
+168 : John är smartare än Bill
+19200 : finns det tenorer som ska ge sina arvoden till välgörenhet
+672 : alla invånare i medlemsstater är individer
+108 : om två år ska Smith ha varit till Florens minst fyra gånger
+48 : vann ITEL kontraktet 1992
+3576 : det finns en representant som Smith skrev till varje vecka
+120 : ITEL-ZX:an är en ITEL-dator
+46848 : lämnade Smith huset innan hon tog en taxi till stationen
+12 : har studenterna talat med Mary
+100000 : John ville köpa en bil , och han gjorde [..]
+48 : upptäckte Smith en ny art
+120 : Dumbo är en liten elefant
+288 : är minst ett fåtal kommittémedlemmar från Sverige
+6144 : Smith hade rest på dagen innan hon anlände till Katmandu
+96 : åtta maskiner har avlägsnats
+1416 : var tio maskiner här igår
+15936 : Jones skrev en rapport innan Smith skrev en rapport
+120 : John är en universitetsstudent
+216 : minst ett fåtal kvinnliga kommittémedlemmar är från Skandinavien
+144 : det finns framstående tenorer som är italienska
+72 : Bill talade med Mary på måndagen
+192 : fem män arbetar deltid
+96 : John äger en bil
+852 : vann en irländare nobelpriset i litteratur
+5376 : det finns tenorer som ska ge sina arvoden till välgörenhet
+192 : varje avdelning har en särskild linje
+480 : tjugo män arbetar på försäljningsavdelningen
+29376 : har APCOM en viktigare kund än ITEL är [..]
+528 : ITEL har utvecklat en ny redigerare sedan 1992
+120 : är Fido ett stort djur
+48 : Jones representerar Jones företag
+2304 : John vill veta hur många män som arbetar deltid
+48 : äger Bill en långsam röd bil
+3072 : de flesta européer kan resa fritt inom Europa
+192 : varje avdelning hyr en linje från BT
+24 : närvarade någon bokförare vid mötet
+96 : Jones var närvarande
+168 : John är fetare än Bill
+48 : har John en diamant
+2304 : John vill veta hur många kvinnor som arbetar deltid
+5520 : har invånarna i medlemsstater rätten att bo var som helst i Europa
+42096 : ägde Smith en kedja av affärsverksamhet i två år
+84 : är PC-6082:an snabbare än ITEL-XZ:an
+384 : ITEL vann minst elva order
+48 : har Mary en arbetsstation
+192 : ska Smith bli en dålig aktiehandlare
+24 : lämnade Smith mötet
+2088 : vann en svensk ett nobelpris
+100000 : alla invånare i större västerländska länder är invånare i västerländska länder
+1920 : John sade att Bill hade skadat sig
+100000 : hon slutade att [..] innan han gjorde [..]
+240 : Dumbo är ett litet djur
+12 : har John talat med Mary
+96 : Bill äger en snabb bil
+96 : Bill äger en bil
+3456 : ett av de kvinnliga ombuden tillbringar mycket tid hemma
+384 : påstod Jones att Smith hade kostnadsberäknat Jones förslag
+2088 : vann en skandinav ett nobelpris
+96 : vann ITEL några order
+120 : är Fido ett litet djur
+25152 : fanns det en italienare som blev världens mest framstående tenor
+96 : John köpte en bil
+1152 : när Jones undertecknade kontraktet , slog hans hjärta
+240 : Bug # 32-985 är ett känt programvarufel
+12 : har Bill talat med Mary
+144 : Smith drev det 1992
+72 : Jones undertecknade ett annat kontrakt
+58752 : alla människorna som var på mötet röstade för en ny ordförande
+12 : användes Marys arbetsstation
+984 : Fido är inte ett litet djur
+8640 : alla människor som är från Portugal är från södra Europa
+12 : undertecknade Jones kontraktet
+120 : några delegater slutförde undersökningen
+48 : har två maskiner avlägsnats
+24 : Mickey är liten
+432 : arbetar två kvinnor på försäljningsavdelningen
+12 : hatade John mötet
+100000 : det ska vara fallet att om några veckor ska Smith upptäcka att hon har blivit lurad ; och hon ska vara rasande
+96 : APCOM undertecknade kontraktet fredagen den 13:e
+72 : ITEL ägde APCOM 1990
+120 : såg Smith ordföranden för ITEL underteckna kontraktet
+1248 : vart och ett av de andra 99 företagen äger en dator
+1440 : har invånarna i västerländska länder rätten att bo i Europa
+192 : Smith , Jones och flera jurister undertecknade kontraktet
+3456 : de är på hennes skrivbord
+84 : är PC-6082:an snabbare än ITEL-ZX:an
+100000 : var Jones närvarande efter det att Smith var närvarande
+1248 : finns det framstående tenorer som sjunger populärmusik
+24 : PC-6082:an är långsam
+246 : var konferensen slut 8:e juli 1994
+2304 : John vill veta vilka män som arbetar deltid
+336 : det varade 2 dagar
+100000 : de flesta européer som är bosatta i Europa kan resa fritt inom Europa
+2304 : Smith bodde i Birmingham i exakt ett år
+48 : Smith såg Jones hjärta slå
+144 : det finns framstående tenorer som är svenska
+336 : var varje representant på mötet
+2304 : Smith trodde att ITEL hade vunnit kontraktet 1992
+2160 : Bill vet inte varför [..]
+576 : sade någon att John hade skadats
+144 : ett fåtal kommittémedlemmar är från Sverige
+24 : ingen bokförare närvarade vid mötet
+1644 : minst tre kvinnliga ombud tillbringar tid hemma
+288 : ett av de ledande tenorerna är Pavarotti
+240 : Helen såg ordföranden för avdelningen svara i telefonen
+24 : ingen delegat slutförde rapporten
+24 : Bill ska tala med Mary
+0 : finns det någon som Helen såg
+576 : ledande tenorer som är förträffliga är oumbärliga
+100000 : John åkte till Paris med bil , och Bill [..] med tåg
+288 : det finns framstående tenorer som sjunger populärmusik
+97296 : ägde Smith en kedja av affärsverksamhet i mer än två år
+72 : skrev Smith det 1992
+1920 : medan Jones uppdaterade programmet , kom in och berättade för honom om styrelsemötet Mary
+55296 : människorna som var på mötet röstade alla för en ny ordförande
+33792 : Jones gick efter det att Anderson var närvarande
+864 : ägde Smith en kedja av affärsverksamhet
+36 : erhöll många delegater intressanta resultat från undersökningen
+48 : äger Bill en snabb bil
+120 : R-9510000003 är en rapport
+100000 : de flesta företag som äger en dator har ett servicekontrakt för det
+1152 : vill John veta vilka män som arbetar deltid
+24 : representerar Mary Johns företag
+72 : de hyr dem från BT
+12 : är Mickey liten
+96 : många delegater erhöll resultat från undersökningen
+10752 : Smith gick efter det att Jones gick
+24 : finns det få kommittémedlemmar från Portugal
+1920 : när Smith anlände till Katmandu hade hon rest i tre dagar
+72 : många framstående tenorer är tyska
+72 : ITEL slutförde MTALK 1993
+13824 : ICM är ett av företagen och äger 150 datorer
+10752 : Jones granskade kontraktet innan Smith gjorde [..]
+13368 : finns det en representant som Smith skrev till varje vecka
+9408 : i två år ägde Smith en kedja av affärsverksamheter
+9024 : Smith drev sin egna affärsverksamhet i två år
+576 : varje europé har rätten att bo i Europa
+1536 : kan de flesta européer resa fritt inom Europa
+100000 : varje invånare på den nordamerikanska kontinenten kan resa fritt inom Europa
+192 : ingen representant tog mindre än en halv dag att läsa rapporten
+100000 : Smith var närvarande efter det att Jones var närvarande
+1200 : en italienare blev världens mest framstående tenor
+576 : ITEL lämnar aldrig rapporter sent
+144 : ITEL vann tjugo order
+48 : Smith simmade till stranden
+48 : köpte John en bil
+72 : ledde Smith ett möte
+48 : Smith såg Jones underteckna kontraktet
+168 : PC-6082:an är långsammare än ITEL-XZ:an
+24 : Bill talade med Mary
+76800 : alla invånare på den nordamerikanska kontinenten kan resa fritt inom Europa
+24 : ITEL-XZ:an är snabb
+432 : Smith drev en affärsverksamhet 1991
+48 : Mary representerar Johns företag
+24576 : varje kanadensisk invånare kan resa fritt inom Europa
+49152 : Smith såg Jones underteckna kontraktet och [..] sin sekreterare göra en kopia
+288 : har varje europé rätten att bo i Europa
+6144 : påstod Jones att han hade kostnadsberäknat sitt egna förslag
+1344 : ITEL servar alla datorerna som GFI äger
+1008 : Smith var en klient på presentationen
+336 : PC-6082:an är snabbare än varje ITEL-dator
+12 : är PC-6082:an snabb
+4992 : finns det en bil som John och Bill äger
+144 : konferensen var slut 8:e juli 1994
+48 : antingen Smith , Jones eller Anderson undertecknade kontraktet
+432 : ITEL gjorde en förlust 1993
+15360 : kan invånarna i medlemsstater resa fritt inom Europa
+30720 : invånarna i västerländska länder kan resa fritt inom Europa
+4416 : Smith skrev en rapport på en timme
+1152 : Jones utexaminerades i mars och har varit anställd ända sedan dess
+288 : hittade John Mary innan Bill hittade Mary
+672 : servar ITEL alla datorerna som GFI äger
+144 : få kvinnliga kommittémedlemmar är från södra Europa
+58752 : APCOM har en viktigare kund än ITEL är [..]
+576 : ITEL försökte att vinna kontraktet 1992
+12 : hatade Johns kollegor mötet
+1212 : skrev Smith en rapport i en timme
+240 : Mickey är ett stort djur
+1440 : Smith bodde i Birmingham i ett år
+1392 : tillbringar högst tio kvinnliga ombud tid hemma
+192 : tog Smith fem laptopar till mötet
+384 : Smith förlorade sitt humör
+912 : slutförde några delegater undersökningen i tid
+96 : John äger en snabb röd bil
+144 : få kommittémedlemmar är från södra Europa
+240 : Dumbo är ett stort djur
+24 : Jones undertecknade kontraktet
+408 : PC-6082:an är snabbare än någon ITEL-dator
+156 : var Smith imponerad av systemets utförande
+384 : Smith simmade innan Jones simmade
+2112 : varje italiensk man vill vara en framstående tenor
+100000 : Smith var närvarande efter det att Anderson var närvarande
+3144 : Smith upptäckte en ny art i en timme
+288 : undertecknade Smith och Jones två kontrakt
+4368 : skylldes systemkraschen på ett eller flera programvarufel
+384 : Smith tog fem laptopar till mötet
+96 : Kim är smart
+240 : minst tre tenorer ska delta i konserten
+48 : Jones representerar Smiths företag
+100000 : Smith lämnade en rapport , en faktura och ett projektförslag till ITEL
+10368 : skrev Jones en rapport innan Smith skrev en rapport
+36 : talade Bill med Mary klockan fyra
+72 : de flesta européer är bosatta i Europa
+100000 : om John skrev en rapport så Bill gjorde [..] också
+672 : PC-6082:an är snabbare än ITEL-ZX:an eller ITEL-ZY:an
+1248 : klienter på presentationen var imponerade av systemets utförande
+48384 : granskade Smith kontraktet efter det att Jones gjorde [..]
+48 : Smith lämnade mötet
+2736 : Smith upptäckte många nya arter på två timmar
+192 : Smith lämnade huset kvart över fem
+73728 : finns det italienska män som vill vara en framstående tenor
+8640 : alla människor som är från Sverige är från Skandinavien
+60 : flera delegater fick resultaten publicerade
+72 : John talade med Mary på måndagen
+144 : ITEL har skickat de flesta av rapporterna Smith behöver
+38400 : Smith är en företagsledare som äger fem olika laptopar
+48 : Jones simmade till stranden
+996 : några irländska delegater slutförde undersökningen i tid
+72 : idag är den 15 maj 1995
+576 : studenterna åker till Paris med tåg
+768 : sade Bill att Mary skrev en rapport
+768 : Smith är sannolik att bli en dålig aktiehandlare
+144 : Kim är en smart människa
+168 : PC-6082:an är snabbare än ITEL-XZ:an
+1152 : två av tio maskiner är försvunna
+72 : Bill talade med Mary klockan fyra
+96 : arbetar fyrtiofem kvinnor deltid
+36 : är de flesta européer bosatta i Europa
+100000 : förra veckan visste jag redan att när om en månad , skulle Smith upptäcka att hon hade blivit lurad , skulle hon vara rasande
+72 : drev Smith det 1992
+576 : de har servicekontrakt för dem
+624 : finns det framstående tenorer som är brittiska
+576 : Bill åkte till Berlin med tåg
+240 : brukade båda ombuden vara i affärsverksamhet
+1392 : tillbringar minst tre manliga ombud tid hemma
+100000 : varje individ som har rätten att bo i Europa kan resa fritt inom Europa
+960 : röstade varje invånare i Cambridge för en Labour-ledamot
+1152 : varje representant eller klient var på mötet
+360 : ITEL vann kontraktet från APCOM 1993
+216 : Bill äger ett också
+3456 : Smith skrev sin första roman 1991
+24 : Marys arbetsstation användes
+480 : åkte Bill till Berlin med tåg
+72 : John talade med Mary på fredagen
+192 : universitetsakademiker blir dåliga aktiehandlare
+100000 : John åkte till Paris med bil , och Bill [..] med tåg till Berlin
+168 : Mickey är mindre än Dumbo
+288 : John åkte till Paris med bil
+52224 : kan varje invånare på den nordamerikanska kontinenten resa fritt inom Europa
+192 : vann ITEL minst elva order
+88320 : John behövde köpa en bil , och Bill gjorde [..]
+24 : Smith undertecknade förstasidan
+100000 : John sade att Mary skrev en rapport , och Bill gjorde [..] också
+192 : Smith hade lämnat huset kvart över fem
+72 : John hittade Mary före Bill
+144 : det finns framstående tenorer som är brittiska
+288 : Bill åkte till Berlin med bil
+96 : sex jurister undertecknade kontraktet
+348 : är minst ett fåtal kvinnliga kommittémedlemmar från Skandinavien
+24 : John är framgångsrik
+12 : vann ITEL APCOM-kontraktet
+48 : många brittiska delegater erhöll intressanta resultat från undersökningen
+96 : Bill äger en snabb en
+840 : Dumbo är större än Mickey
+24 : det finns få kommittémedlemmar från Portugal
+100000 : ingen som är sovande vet någonsin att han är sovande
+10752 : Jones gick efter det att Anderson gick
+1536 : Jones påstod att han hade kostnadsberäknat Smiths förslag
+624 : finns det framstående tenorer som är italienska
+3456 : Smith skrev sin första roman 1992
+216 : skickade ITEL en statusrapport i juli 1994
+672 : APCOM har en viktigare kund än ITEL
+24 : båda de ledande tenorerna är oumbärliga
+96 : Bill äger en blå bil
+100000 : innan APCOM köpte sin nuvarande kontorsbyggnad , hade det betalat hypoteksränta på den förra nen i 8 år
+192 : APCOM vann några order
+216 : minst ett fåtal kommittémedlemmar är från Sverige
+14016 : Smith var närvarande innan Jones var närvarande
+24 : representerar Smith Jones företag
+38400 : John åkte till Paris med bil , och Bill [..] till Berlin
+48 : Jones lämnade mötet
+100000 : en jurist undertecknade varje rapport , och det gjorde en revisor också
+48 : de antika grekerna var välkända filosofer
+100000 : Jones var närvarande efter det att Smith var närvarande
+39312 : några människor upptäcker att de har varit sovande
+624 : finns det framstående tenorer som är tyska
+96 : Bill skrev en rapport
+100000 : varje individ som har rätten att bo var som helst i Europa kan resa fritt inom Europa
+384 : Smith och Jones ställde två maskiner i vestibulen
+24 : de flesta framstående tenorer är italienska
+192 : hyr varje avdelning en linje från BT
+96 : Smith , Anderson och Jones träffades
+144 : det finns verkligt ärelystna tenorer som är italienska
+24 : John hatade mötet
+2424 : Smith skrev en rapport i en timme
+9024 : det fanns en italienare som blev världens mest framstående tenor
+240 : Fido är ett litet djur
+100000 : varje kund som äger en dator har ett servicekontrakt för det
+48 : alla feta juridiska fackmän är feta juridiklärare
+192 : förlorade Smith sitt humör
+600 : finns det några rapporter från ITEL på Smiths skrivbord
+120 : Jones har mer än en tjänstebil
+36 : talade Bill med Mary klockan fem
+48 : äger Bill en snabb röd bil
+1128 : slutförde någon skandinavisk delegat rapporten i tid
+13056 : Smith drev sin egna affärsverksamhet i ett år
+24 : Jones granskade kontraktet
+144 : Smith upptäckte det 1992
+72 : ITEL ägde APCOM från 1988 till 1992
+2208 : simmade Jones efter det att Smith simmade
+2784 : en irländare vann ett nobelpris
+384 : John sade att Bill hade skadats
+96 : det finns tenorer som ska delta i konserten
+3168 : systemkraschen skylldes på ett eller flera programvarufel
+432 : ITEL skickade en statusrapport i juli 1994
+13272 : det tog de representanterna mer än en vecka att läsa rapporten
+144 : APCOM förlorade tio order
+84 : är John smartare än Bill
+144 : sex bokförare undertecknade kontraktet
+26880 : ITEL vann mer order än APCOM gjorde [..]
+432 : ITEL har en fabrik i Birmingham
+720 : åker studenterna till Paris med tåg
+192 : Mary använde sin arbetsstation
+480 : är Mickey större än Dumbo
+2040 : en svensk vann ett nobelpris
+55296 : ingen som spelar seriöst slutar förrän han är pank
+48 : alla juridiklärare är juridiska fackmän
+72 : de har avlägsnats
+96 : programvarufel beskylldes för systemkraschen
+1344 : PC-6082:an är snabbare än ITEL-ZX:an och ITEL-ZY:an
+36864 : ingen kan spela när han är pank
+36 : närvarade inga bokförare vid mötet
+24 : John talade med Sue
+168 : Kim är en smart politiker
+84 : är PC-6082:an långsammare än ITEL-XZ:an
+1344 : tillbringar högst tio ombud tid hemma
+480 : är Dumbo större än Mickey
+624 : finns det framstående tenorer som är svenska
+48 : i mars 1993 grundade APCOM ITEL
+120 : Jones är en APCOM-direktör
+24 : Johns kollegor hatade mötet
+480 : åkte Bill till Paris med tåg
+96 : sedan 1992 har ITEL varit i Birmingham
+1920 : bodde Smith i Birmingham i exakt ett år
+192 : representerar Mary sitt egna företag
+100000 : Jones skrev en rapport efter det att Smith skrev en rapport
+1008 : Smith bodde i Birmingham i två år
+100000 : kan de flesta européer som är bosatta utanför Europa resa fritt inom Europa
+564 : var varje antik grek en välkänd filosof
+72 : John talade med Mary klockan fyra
+168 : ett fåtal framstående tenorer sjunger populärmusik
+2208 : skrev Smith en rapport på en timme
+528 : Smith upptäckte en ny art 1991
+2880 : invånarna i västerländska länder har rätten att bo i Europa
+768 : det vill säga , det fanns en jurist som undertecknade alla rapporterna
+48 : har åtta maskiner avlägsnats
+100000 : Smith ägde en kedja av affärsverksamhet i mer än två år
+8832 : gick Smith efter det att Jones gick
+384 : Smith undertecknade förstasidan av R-9510000003
+5088 : högst tio ombud tillbringar mycket tid hemma
+96768 : Smith granskade kontraktet efter det att Jones gjorde [..]
+4608 : det finns italienska tenorer som vill vara framstående
+288 : ITEL vann dubbelt så många order än APCOM
+216 : Smith var i Paris den 7:e maj 1995
+432 : tillbringar inget av ombuden tid hemma
+72 : inga bokförare närvarade vid mötet
+504 : Smith har varit till Florens två gånger tidigare
+72 : erhöll många delegater resultat från undersökningen
+432 : Smith skrev en roman 1991
+8832 : gick Smith efter det att Anderson gick
+15936 : Smith skrev en rapport innan Jones skrev en rapport
+10752 : MFI är en kund som äger exakt en dator
+10752 : Smith granskade kontraktet innan Jones gjorde [..]
+100000 : Smith tog en maskin på tisdagen , och Jones tog en maskin på onsdagen
+240 : varje europé är en människa
+100000 : sedan APCOM köpte sin nuvarande kontorsbyggnad har det betalat hypoteksränta på det i mer än 10 år
+4944 : tillbringar något av ombuden mycket tid hemma
+24 : det finns sexton representanter
+48 : köpte Bill en bil
+1536 : Bill sade att Peter skrev en rapport
+768 : hon gav även dem en faktura
+204 : är alla kompetenta juridiska fackmän kompetenta juridiklärare
+432 : vann ITEL ett kontrakt 1993
+48 : Jones undertecknade även dem
+3072 : kan varje europé resa fritt inom Europa
+24576 : det finns italienska män som vill vara en framstående tenor
+528 : Smith upptäckte en ny art 1992
+8 : men bara en kvinna
+216 : Jones är ordföranden för ITEL
+144 : ett fåtal kvinnliga kommittémedlemmar är från Skandinavien
+144 : Jones undertecknade två kontrakt
+24 : Mary är kvinnlig
+100000 : John sade att Mary skrev en rapport , och sade att Bill gjorde [..] också
+96 : använde Mary sin arbetsstation
+66432 : Jones simmade till stranden efter det att Smith simmade till stranden
+33792 : Smith var närvarande efter det att Jones gick
+72 : flera framstående tenorer är brittiska
+48 : äger Bill en blå bil
+3 : på fredagen
+36 : talade Bill med Mary på måndagen
+144 : det finns verkligt framstående tenorer som är blygsamma
+100000 : Smith påstod att han hade kostnadsberäknat sitt förslag och det gjorde Jones också
+258 : det gjorde Bill också
+96 : slutförde några delegater undersökningen
+144 : Smith undertecknade två kontrakt
+100000 : de flesta européer som är bosatta utanför Europa kan resa fritt inom Europa
+228 : var Smith i Paris den 7:e maj 1995
+12 : är Mary kvinnlig
+53760 : det är sant att ITEL vann kontraktet 1992
+4608 : Smith såg Jones underteckna kontraktet eller [..] [..] stryka över den kritiska paragrafen
+31104 : har invånarna i större västerländska länder rätten att bo i Europa
+144 : det finns framstående tenorer som är tyska
+3072 : alla européer kan resa fritt inom Europa
+1080 : John är en smartare politiker än Bill
+228 : var ITEL i Birmingham 1993
+1752 : högst tio ombud tillbringar tid hemma
+624 : slutförde någon delegat rapporten i tid
+24 : John talade med Mary
+384 : ordföranden läste upp punkterna på dagordningen
+36 : ägde ITEL APCOM 1990
+2304 : varje representant och klient var på mötet
+1440 : sedan hon tog en taxi till stationen
+576 : Bill åkte till Paris med tåg
+192 : John hade sin uppsats godkänd
+240 : Smith såg ordföranden för ITEL underteckna kontraktet
+192 : varje rapport har en förstasida
+552 : ITEL-ZX:an är långsammare än 500 MIPS
+96 : hon ledde det
+192 : ingen delegat slutförde rapporten i tid
+24 : de verkligt ärelystna tenorerna är italienska
+288 : båda ombuden brukade vara affärsmän
+24 : studenterna har talat med Mary
+120 : undertecknade sex bokförare kontraktet
+1728 : Smith ägde en kedja av affärsverksamhet
+288 : båda ombuden brukade vara ledande affärsmän
+1416 : slutförde några irländska delegater undersökningen i tid
+12288 : alla kanadensiska invånare kan resa fritt inom Europa
+1128 : Smith upptäckte nya arter i två år
+144 : få kommittémedlemmar är från Portugal
+9888 : tillbringar minst tre ombud mycket tid hemma
+72 : upptäckte Smith det 1992
+48 : alla möss är små djur
+1920 : varje invånare i Cambridge röstade för en Labour-ledamot
+100000 : hon tog en taxi till stationen och kom med det första tåget till Luxemburg
+48 : äger Bill en bil
+84192 : Smith ägde en kedja av affärsverksamhet i två år
+96 : Bill äger en långsam en
+984 : Fido är inte ett stort djur
+96 : Dumbo är fyrbent
+1344 : var Jones arbetslös vid någon tidpunkt innan han utexaminerades
+72 : alla juridiska fackmän är juridiklärare
+72 : Smith anlände till Paris den 5:e maj 1995
+240 : Mickey är ett litet djur
+48 : alla européer är människor
+864 : ITEL vann ett kontrakt 1993
+12288 : Jones påstod att han hade kostnadsberäknat sitt egna förslag
+96 : APCOM har betalat hypoteksränta i totalt 15 år eller mer
+840 : Mickey är större än Dumbo
+288 : hade Smith slutat att skriva rapporten klockan 11
+240 : ITEL vann mer order än APCOM
+1152 : gick Jones innan Smith gick
+768 : Jones påstod att Smith hade kostnadsberäknat Smiths förslag
+768 : Jones påstod att Smith hade kostnadsberäknat Jones förslag
+144 : Smith bodde i Birmingham 1992
+24 : PC-6082:an är snabb
+4944 : Smith skrev en rapport på två timmar
+3456 : ett av ombuden tillbringar mycket tid hemma
+24 : Smith upptäckte nya arter
+96 : Jones har en tjänstebil
+6816 : tillbringar något av de kvinnliga ombuden mycket tid hemma
+100000 : alla som börjar spela seriöst slutar på ögonblicket när han är pank
+600 : ordföranden för avdelningen är en människa
+1536 : Smith gick innan Anderson gick
+100000 : Bill föreslog för Franks chef att de borde gå till mötet tillsammans , och Carl [..] till Alans fru
+48 : Bug # 32-985 beskylldes för systemkraschen
+1152 : om Jones undertecknade kontraktet , slog hans hjärta
+384 : någon delegat slutförde rapporten i tid
+12 : är John framgångsrik
+480 : båda ombuden brukade vara i affärsverksamhet
+480 : några italienska tenorer är framstående
+96 : Smith skrev en rapport
+6528 : MFI är en kund som äger flera datorer
+48 : ITEL fanns 1992
+60 : har Jones mer än en tjänstebil
+144 : Smith bodde i Birmingham 1991
+240 : varje antik grek var en välkänd filosof
+11520 : ITEL vann mer order än APCOM förlorade [..]
+528 : ITEL lämnade rapporter sent 1993
+84 : är John fetare än Bill
+12 : ska Bill tala med Mary
+96 : försäljningsavdelningen hyr en linje från BT
+624 : finns det framstående tenorer som är fattiga
+480 : båda de kvinnliga ombuden brukade vara i affärsverksamhet
+624 : studenterna har [..] också
+72 : Jones har varit arbetslös tidigare
+1728 : skrev Smith sin första roman 1992
+1344 : tillbringar minst tre ombud tid hemma
+12 : upptäckte Smith nya arter
+240 : Fido är ett stort djur
+14016 : Jones var närvarande innan Smith var närvarande
+44448 : APCOM har en viktigare kund än ITEL har [..]
+48 : har APCOM betalat hypoteksränta i totalt 15 år eller mer
+84 : är Mickey mindre än Dumbo
+216 : ITEL var i Birmingham 1993
+264 : utvecklade ITEL en ny redigerare 1993
+11040 : invånarna i medlemsstater har rätten att bo var som helst i Europa
+48 : skrev Smith en rapport
+100000 : har de flesta företag som äger en dator ett servicekontrakt för det
+100000 : det är inte sant att ITEL vann kontraktet 1992
+576 : John hittade Mary innan Bill hittade Mary
+48 : ITEL sålde 5500 datorer
+3312 : de var alla här igår
+1560 : ITEL har för närvarande en fabrik i Birmingham
+57216 : simmade Jones till stranden efter det att Smith simmade till stranden
+6768 : Smith upptäckte en ny art på två timmar
+240 : ITEL sålde 3000 mer datorer än APCOM
+48 : Smith bodde i Birmingham
+55296 : Smith lämnade mötet innan han förlorade sitt humör
+240 : varje svensk är en skandinav
+1728 : när de öppnade M25:an , ökade trafik
+96 : närvarade några bokförare vid mötet
+3072 : fanns det en revisor som undertecknade alla rapporterna
+36 : slutförde ITEL MTALK 1993
+12 : närvarade ingen bokförare vid mötet
+96 : Smith upptäckte en ny art
+288 : är minst ett fåtal kommittémedlemmar från Skandinavien
+72 : idag är lördagen den 14 juli
+2880 : invånarna i medlemsstater har rätten att bo i Europa
+24 : alla APCOM-direktörer har tjänstebilar
+36 : bodde Smith i Birmingham
+96 : Mary använde en arbetsstation
+120 : Mary är en student
+60 : har Jones en tjänstebil
+384 : varje student använde sin arbetsstation
+24 : såg Smith Jones hjärta slå
+5280 : fanns det en grupp människor som träffades
+24 : representerar Jones Jones företag
+24 : lämnade Jones mötet
+264 : lämnade ITEL rapporter sent 1993
+36 : talade John med Mary på fredagen
+600 : det finns några rapporter från ITEL på Smiths skrivbord
+384 : röstade alla på mötet för en ny ordförande
+96 : Smith var närvarande
+384 : Smith antingen såg Jones underteckna kontraktet eller såg Jones stryka över den kritiska paragrafen
+9888 : tillbringar högst tio ombud mycket tid hemma
+384 : Mary representerar sitt egna företag
+48 : använde Mary en arbetsstation
+48 : många delegater erhöll intressanta resultat från undersökningen
+2016 : det fanns en grupp människor som träffades
+0 : det finns någon som Helen såg
+1536 : han utnämns av dess medlemmar
+100000 : John åker till Paris med bil , och studenterna [..] med tåg
+24 : ingen av de ledande tenorerna är billiga
+16 : och fyrtiofem kvinnor
+38400 : kan alla invånare på den nordamerikanska kontinenten resa fritt inom Europa
+384 : gjorde Smith antingen se Jones underteckna kontraktet eller se Jones stryka över den kritiska paragrafen
+216 : gjorde ITEL en förlust 1993
+204 : är få kommittémedlemmar från södra Europa
+1080 : John är en fetare politiker än Bill
+768 : påstod Jones att han hade kostnadsberäknat Smiths förslag
+24 : sålde ITEL 5500 datorer
+480 : två kvinnor arbetar på försäljningsavdelningen
+4080 : fick flera delegater resultaten publicerade i större nationella tidningar
+10752 : Jones gick efter det att Smith gick
+96 : Bill köpte en bil
+864 : inga två representanter har läst det samtidigt
+264 : upptäckte Smith en ny art 1992
+72 : vann ITEL tjugo order
+48 : erhöll många brittiska delegater intressanta resultat från undersökningen
+552 : PC-6082:an är snabbare än 500 MIPS
+312 : Smith var imponerad av systemets utförande
+1500 : flera portugisiska delegater fick resultaten publicerade i större nationella tidningar
+768 : sade Bill att Peter skrev en rapport
+384 : vet Bill varför John hade sin uppsats godkänd
+192 : Bill [..] inte
+48 : slutförde ingen delegat rapporten
+48 : Smith gick
+96 : Smith , Jones och Anderson undertecknade kontraktet
+12288 : kan varje kanadensisk invånare resa fritt inom Europa
+1152 : gick Smith innan Anderson gick
+72 : Bill talade med Mary klockan fem
+192 : APCOM förlorade några order
+2688 : Jones var arbetslös vid någon tidpunkt innan han utexaminerades
+456 : några framstående tenorer gillar populärmusik
+960 : alla italienska män vill vara en framstående tenor
+24 : båda de ledande tenorerna är förträffliga
+100000 : John skrev en rapport , och Bill sade att Peter gjorde [..] också
+1500 : flera delegater fick resultaten publicerade i större nationella tidningar
+31104 : människorna som var på mötet röstade för en ny ordförande
+60 : är John en universitetsstudent
+12 : talade John med Mary
+48 : alla elefanter är stora djur
+4608 : de förstördes när hennes hårddisk kraschade
+5760 : exakt två jurister och tre bokförare undertecknade kontraktet
+36 : beskylldes Bug # 32-985 för systemkraschen
+24 : igår undertecknade APCOM kontraktet
+100000 : Smith representerar sitt företag och det gör Jones också
+24 : Smith simmade
+288 : hittade John Mary innan John hittade Bill
+144 : Smith närvarade vid ett möte
+96 : John skrev en rapport
+100000 : skrev Jones en rapport efter det att Smith skrev en rapport
+96 : två maskiner har avlägsnats
+100000 : ingen som börjar spela seriöst slutar förrän han är pank
+864 : alla på mötet röstade för en ny ordförande
+1144 : en företagsledare har tilldelat och tilldelats en löneförhöjning
+96768 : Jones granskade kontraktet efter det att Smith gjorde [..]
+120 : är Dumbo ett litet djur
+6144 : kan alla kanadensiska invånare resa fritt inom Europa
+120 : är Mickey ett stort djur
+48 : varje representant har läst den här rapporten
+576 : Smith hade slutat att skriva rapporten klockan 11
+7296 : Smith simmade till stranden innan Jones simmade till stranden
+96 : John äger en röd bil
+144 : John är en före detta universitetsstudent
+240 : åkte Bill till Berlin med bil
+96 : vann APCOM några order
+3264 : var varje representant och varje klient på mötet
+1536 : Jones gick innan Smith gick
+3840 : Pavarotti är en ledande tenor som är billig
+1152 : varje italiensk tenor vill vara framstående
+144 : ITEL vann mer än en order
+72 : få framstående tenorer är fattiga
+2688 : Jones simmade efter det att Smith simmade
+25680 : har APCOM en viktigare kund än ITEL har [..]
+144 : det finns framstående tenorer som är fattiga
+6144 : varje europé kan resa fritt inom Europa
+6528 : drev Smith sin egna affärsverksamhet i ett år
+192 : ställde Smith och Jones två maskiner i vestibulen
+96 : hyr försäljningsavdelningen en linje från BT
+144 : brukade båda ombuden vara affärsmän
+168 : PC-6082:an är snabbare än ITEL-ZX:an
+120 : bodde Smith i Birmingham 1992
+384 : någon skandinavisk delegat slutförde rapporten i tid
+432 : ITEL har gjort en förlust sedan 1992
+1044 : har ITEL för närvarande en fabrik i Birmingham
+100000 : invånarna i större västerländska länder kan resa fritt inom Europa
+1536 : Smith gick innan Jones gick
+12 : talade John med Sue
+768 : Bill [..] med tåg
+240 : Dumbo är ett fyrbent djur
+192 : undertecknade Smith förstasidan av R-9510000003
+432 : finns det verkligt ärelystna tenorer som är italienska
+93696 : Smith lämnade huset innan hon tog en taxi till stationen
+384 : läste ordföranden upp varje punkt på dagordningen
+240 : några italienska män är framstående tenorer
+1752 : minst tre ombud tillbringar tid hemma
+144 : APCOM vann tio order
+192 : Bill kommer att [..]
+336 : Smith ska åka till Florens två gånger under det kommande året
+48 : försäljningsavdelningen hyr det från BT
+144 : Smith är en universitetsakademiker
+24 : Smith granskade kontraktet
+100000 : alla människor som är bosatta i Europa kan resa fritt inom Europa
+7584 : tog det de representanterna mer än en vecka att läsa rapporten
+24 : det finns få kommittémedlemmar från södra Europa
+10752 : Smith gick efter det att Anderson gick
+72 : John talade med Mary på torsdagen
+4032 : klienter på presentationen var alla imponerade av systemets utförande
+672 : Smith skrev till en representant varje vecka
+120 : Mickey är en stor mus
+1536 : Bill sade att Mary skrev en rapport
+192 : ingen student använde sin arbetsstation
+384 : påstod Jones att Smith hade kostnadsberäknat Smiths förslag
+120 : John har en äkta diamant
+816 : har alla européer rätten att bo i Europa
+288 : finns det tenorer som ska delta i konserten
+576 : Smith började skriva rapporten klockan 8
+960 : Bill talade med alla som John gjorde [..] [..]
+768 : Bill vet varför John hade sin uppsats godkänd
+972 : var de flesta klienter på presentationen imponerade av systemets utförande
+768 : sade John att Bill skrev en rapport
+288 : varje representant var på mötet
+12096 : har MFI ett servicekontrakt för alla sina datorer
+48 : alla kommittémedlemmar är människor
+576 : John hittade Mary innan John hittade Bill
+48 : 1993 lämnade ITEL rapporter
+192 : några bokförare närvarade vid mötet
+1280 : en irländare vann nobelpriset i litteratur
+192 : ITEL vann några order
+840 : det är nu 1996
+100000 : varje människa som har rätten att bo i Europa kan resa fritt inom Europa
+5088 : minst tre ombud tillbringar mycket tid hemma
+48 : GFI äger flera datorer
+1872 : de flesta klienter på presentationen var imponerade av systemets utförande
+480 : varje däggdjur är ett djur
+30720 : invånarna i medlemsstater kan resa fritt inom Europa
+8 : och till Sue
+100000 : det har inte servicekontrakt för något av sina datorer
+24 : finns det få kommittémedlemmar från södra Europa
+100000 : John representerar sitt företag och det gör Mary också
+9792 : John och hans kollegor gick till ett möte
+576 : Smith och Jones undertecknade två kontrakt
+288 : alla européer har rätten att bo i Europa
+48 : PC-6082:an är lika snabb som ITEL-XZ:an
+100000 : varje företagsledare som hade en laptop tog med det att ta anteckningar på mötet
+8 : och kvinnor
+1152 : det fanns en revisor som undertecknade alla rapporterna
+1920 : är Pavarotti en ledande tenor som är billig
+96 : fyrtiofem kvinnor arbetar deltid
+48 : någon bokförare närvarade vid mötet
+100000 : varje kommitté har en ordförande utnämnd av medlemmar av kommittén
+528 : ITEL utvecklade en ny redigerare 1993
+24 : Bill har talat med Mary
+204 : är alla feta juridiska fackmän feta juridiklärare
+576 : tio maskiner var här igår
+31104 : invånarna i större västerländska länder har rätten att bo i Europa
+79872 : har varje kommitté en ordförande utnämnd av medlemmar av kommittén
+16128 : finns det italienska tenorer som vill vara framstående
+60 : är Dumbo fyrbent
+1920 : det finns en bil som John och Bill äger
+240 : ITEL vann mer order än APCOM-kontraktet
+48 : konferensen började 4:e juli 1994
+996 : några delegater slutförde undersökningen i tid
+24 : ITEL vann APCOM-kontraktet
+120 : de antika grekerna var alla välkända filosofer
+384 : Smith ska bli en dålig aktiehandlare
+24576 : John vill veta vilka [..] som [..] , och vilka [..] som [..]
+2592 : inget av de kvinnliga ombuden tillbringar mycket tid hemma
+264 : John är en före detta framgångsrik universitetsstudent
+192 : Bill har [..]
+252 : är få kvinnliga kommittémedlemmar från södra Europa
+60 : är Kim smart
+48 : Jones gick
+8832 : gick Jones efter det att Smith gick
+128 : sedan 1992 har ITEL gjort en förlust
+48 : alla kompetenta juridiska fackmän är kompetenta juridiklärare
+240 : brukade båda de kvinnliga ombuden vara i affärsverksamhet
+14208 : högst två tenorer ska ge sina arvoden till välgörenhet
+8 : och på fredagen
+72 : vann ITEL mer än en order
+72 : inga verkligt framstående tenorer är blygsamma
+1536 : John sade att Bill skrev en rapport
+24 : John har talat med Mary
+2040 : en skandinav vann ett nobelpris
+480 : hon är fortfarande i Paris
+48 : ITEL expanderade 1993
+96 : Bill äger en röd bil
+100000 : men några människor vet att de har varit sovande efter det att de har varit sovande
+144 : de hatade det
+2592 : inget av ombuden tillbringar mycket tid hemma
+2304 : om Smith och Anderson inte undertecknade kontraktet , undertecknade Jones kontraktet
+36 : fanns ITEL 1992
+144 : brukade båda ombuden vara ledande affärsmän
+3096 : vann en irländare ett nobelpris
+240 : John är en framgångsrik före detta universitetsstudent
+216 : skrev Smith en roman 1992
+480 : varje kommitté har en ordförande
+18 : det finns 100 företag
+24 : såg Smith Jones underteckna kontraktet
+10240 : en företagsledare tilldelade sig en stor löneförhöjning
+72 : ITEL tillverkade MTALK 1993
+1152 : någon sade att John hade skadats
+216 : minst ett fåtal kommittémedlemmar är från Skandinavien
+48 : skrev Bill en rapport
+72 : APCOM sålde exakt 2500 datorer
+96 : Mary har en arbetsstation
+1152 : vill John veta hur många kvinnor som arbetar deltid
+100000 : lämnade Smith en rapport , en faktura och ett projektförslag till ITEL
+42624 : varje kanadensisk invånare är en invånare på den nordamerikanska kontinenten
+864 : Smith lämnade en rapport till ITEL
+96 : fick flera delegater resultaten publicerade
+100000 : alla som börjar spela seriöst fortsätter förrän han är pank
+4056 : är varje fyrbent däggdjur ett fyrbent djur
+1536 : Jones gick innan Anderson gick
