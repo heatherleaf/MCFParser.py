@@ -244,32 +244,23 @@ class Concrete(object):
             self.parsers[strategy_key] = GFParser(self, trace, **strategy)
         return self.parsers[strategy_key]
 
-
-######################################################################
-
-class GFParser(object):
-    def __init__(self, concrete, trace=None, **strategy):
-        self.concrete = concrete
-        startcats = concrete.cnccats[concrete.abstract.start]
-        self.mcfparser = MCFParser.Parser(self.mcfrule_iter(), startcats, trace, **strategy)
-
     def mcfrule_iter(self):
-        coercion_rhss = [[(0, lbl)] for lbl in range(self.concrete.max_arity)]
-        for ccat, prods in self.concrete.productions.iteritems():
+        coercion_rhss = [[(0, lbl)] for lbl in range(self.max_arity)]
+        for ccat, prods in self.productions.iteritems():
             for cfun, args in prods:
                 if cfun: 
-                    seqs, _ = self.concrete.cncfuns[cfun]
-                    rhss = map(self.convert_gfsequence, seqs)
+                    seqs, _ = self.cncfuns[cfun]
+                    rhss = map(self._convert_gfsequence_to_mcf, seqs)
                 else:
                     # coercion
                     assert len(args) == 1
                     cfun = Coercion(ccat, args[0])
-                    arity = self.concrete.arities[args[0]]
+                    arity = self.arities[args[0]]
                     rhss = coercion_rhss[:arity]
                 if rhss:
                     yield (cfun, ccat, tuple(args), rhss)
 
-    def convert_gfsequence(self, seq):
+    def _convert_gfsequence_to_mcf(self, seq):
         def convert_pre(sym):
             if isinstance(sym, dict):
                 # TODO: fix this!!
@@ -279,7 +270,16 @@ class GFParser(object):
                 elif 'lit' in sym:
                     return ["[LITERAL]"]
             return [sym]
-        return [mcfsym for gfsym in self.concrete.sequences[seq] for mcfsym in convert_pre(gfsym)]
+        return [mcfsym for gfsym in self.sequences[seq] for mcfsym in convert_pre(gfsym)]
+
+
+######################################################################
+
+class GFParser(object):
+    def __init__(self, concrete, trace=None, **strategy):
+        self.concrete = concrete
+        startcats = concrete.cnccats[concrete.abstract.start]
+        self.mcfparser = MCFParser.Parser(concrete.mcfrule_iter(), startcats, trace, **strategy)
 
     def parse(self, tokens, n=None, trace=None):
         for mcftree in self.mcfparser.parse(tokens, n=n, trace=trace):
