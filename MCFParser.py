@@ -7,7 +7,7 @@
 #
 # MCFParser.py is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
+# the Free Software Foundation, either version 3 of the License, or 
 # (at your option) any later version.
 #
 # MCFParser.py is distributed in the hope that it will be useful,
@@ -19,24 +19,128 @@
 # along with MCFParser.py.  If not, see <http://www.gnu.org/licenses/>.
 
 
+"""
+This module contains parsing algorithms for Parallel Multiple 
+Context-Free Grammars (PMCFG), as described in:
+
+Peter Ljunglöf (2012). Practical Parsing of Parallel Multiple 
+Context-Free Grammars. In Proceedings of TAG+11, the 11th International 
+Workshop on Tree Adjoining Grammars and Related Formalisms.
+26-28 September, Paris, France.
+
+Since PMCFG includes MCFG and LCFRS, this parser can be used to parse 
+these formalisms too. Example usage:
+
+    >>> grammar = [('f', 'S', ['A'], [[(0,0), (0,1)]]),
+    ...            ('g', 'A', ['A'], [['a', (0,0), 'b'], ['c', (0,1), 'd']]),
+    ...            ('h', 'A', [],    [['a', 'b'], ['c', 'd']])]
+
+    >>> parser = Parser(grammar, ['S'])
+
+    >>> for tree in parser.parse("a a a b b b c c c d d d".split()):
+    ...     print tree
+    ('f', ('g', ('g', ('h',))))
+
+A grammar can also use string labels, instead of integers:
+
+    >>> grammar = [('f', 'S', ['A'], {'s':[(0,'p'), (0,'q')]}),
+    ...            ('g', 'A', ['A'], {'p':['a', (0,'p'), 'b'], 'q':['c', (0,'q'), 'd']}),
+    ...            ('h', 'A', [],    {'p':['a', 'b'], 'q':['c', 'd']})]
+
+    >>> list(Parser(grammar, ['S']).parse("a a a b b b c c c d d d".split()))
+    [('f', ('g', ('g', ('h',))))]
+
+For more information, try help(Parser).
+"""
+
+
 from collections import defaultdict, namedtuple
 import sys
 import time
 
 class Parser(object):
+    """
+    A class for parsing PMCFG/MCFG/LCFRS grammars.
+
+    To create a PMCFG/MCFG/LCFRS parser, you need a sequence of PMCFG 
+    grammar rules, and one or several starting nonterminals/categories.
+
+        >>> grammar = [('f', 'S', ['A'], [[(0,0), (0,1)]]),
+        ...            ('g', 'A', ['A'], [['a', (0,0), 'b'], ['c', (0,1), 'd']]),
+        ...            ('h', 'A', [], [['a', 'b'], ['c', 'd']])]
+
+        >>> parser = Parser(grammar, ['S'], bottomup=True, filtered=True, trace=0)
+
+        >>> for tree in parser.parse("a a b b c c d d".split()):
+        ...     print tree
+        ('f', ('g', ('h',)))
+
+        >>> parser.chart_parse("a a b b c c d d".split())
+        True
+
+        >>> for tree in parser.extract_trees():
+        ...     print tree
+        ('f', ('g', ('h',)))
+
+        >>> parser.print_grammar_statistics()
+        Grammar statistics          ||
+        -------------------|--------:|
+        Nr. terminals      |       2 |
+        Nr. nonterminals   |       2 |
+        Nr. nonterm-const. |       3 |
+        Nr. grammar rules  |       3 |
+        Nr. constituents   |       5 |
+        Nr. const. lengths |      12 |
+        Nr. empty const.   |       0 |
+        Nr. leftc. pairs   |       4 |
+        Nr. lcword. pairs  |       2 |
+
+        >>> parser.print_parse_statistics()
+        Statistics |    TOTAL |   Active |    Found |     Rule |   Symbol |
+        -----------|---------:|---------:|---------:|---------:|---------:|
+        Chart      |       31 |       16 |        5 |        5 |        5 |
+        Inferences |       31 |       16 |        5 |        5 |        5 |
+        Time       |     0.00 |
+
+    The tracing level is used in many methods. These are the possible values:
+
+      - None: No tracing, do not even collect statistics.
+      - 0: No tracing, but collect parsing statistics.
+      - 1: Print short tracing information to standard error.
+      - 2: Print all parse items as they are inferred. Plus statistics
+           about the grammar and the final chart.
+    """
+
     def __init__(self, mcfrules, startcats, check=True, trace=None, 
                  nonempty=False, topdown=False, bottomup=False, filtered=False):
+        """
+        Create a PMCFG parser. 
+
+        Keyword arguments:
+        mcfrules  -- a sequence or an iterator of (fun, cat, args, rhss) tuples.
+                     'fun' is the name of the rule, 'cat' is the lefthandside
+                     nonterminal, and 'args' is a tuple/list of nonterminals.
+                     'rhss' is a dict/list of linearization sequences.
+        startcats -- a list/tuple/set of starting nonterminals.
+        check     -- perform sanity check on the grammar rules.
+        trace     -- the general tracing level for all methods (None/0/1/2).
+        nonempty  -- transform the grammar to non-empty form (this can in some
+                     cases improve performance, especially for bottomup parsing).
+        topdown   -- perform topdown parsing (this is the default strategy).
+        bottomup  -- perform bottomup parsing. 
+        filtered  -- perform left-corner filtering (works with topdown/bottomup).
+        """
 
         if check:
             if not isinstance(mcfrules, (list, tuple, set)):
                 mcfrules = list(mcfrules)
             check_grammar_rules(mcfrules)
 
-        self.strategy = {'topdown':topdown, 'bottomup':bottomup, 'filtered':filtered}
-        if not topdown and not bottomup:
+        if not (topdown or bottomup):
             topdown = True
-        if topdown and bottomup:
+        elif topdown and bottomup:
             raise ValueError("The parsing strategy cannot be both bottomup and topdown.")
+        self.strategy = {'topdown':topdown, 'bottomup':bottomup, 'filtered':filtered}
 
         self.nonempty = nonempty
         self.trace = trace
@@ -64,17 +168,36 @@ class Parser(object):
         #     self._init_emptyfollowers()
         if self.strategy['bottomup']:
             initialize_bottomup_grammar(self.grammar, self.trace)
-        if self.trace: 
+        if self.trace > 1: 
             self.print_grammar_statistics()
 
     ######################################################################
     ## Parsing
 
     def parse(self, tokens, n=None, trace=None):
+        """
+        Parse a sequence of tokens, returns an iterator of parse trees.
+
+        Keyword arguments:
+        tokens -- a list/tuple of tokens (e.g., strings).
+        n      -- the maximum number of parse trees to be returned.
+        trace  -- the tracing level (None/0/1/2).
+        """
         self.chart_parse(tokens, trace)
         return self.extract_trees(n=n)
 
     def chart_parse(self, tokens, trace=None):
+        """
+        Parse a sequence of tokens, returns True if parsing succeeds.
+
+        If parsing succeeds, you can use the method .extract_trees()
+        to get the parse trees.
+
+        Keyword arguments:
+        tokens -- a list/tuple of tokens (e.g., strings).
+        n      -- the maximum number of parse trees to be returned.
+        trace  -- the tracing level (None/0/1/2).
+        """
         if trace is None: trace = self.trace
         self.init_chart(tokens)
         if trace == 1: 
@@ -88,11 +211,23 @@ class Parser(object):
                                     if isinstance(stat[key], (int, long, float)))
         if trace == 1: 
             ctr.finalize()
+        elif trace > 1:
+            self.print_parse_statistics()
         return any(Found(startcat, lbl, 0, len(tokens)) in self.chart[Rule]
                    for startcat in self.grammar['startcats']
                    for lbl in self.grammar['catlabels'][startcat])
 
     def extract_trees(self, startcats=None, start=0, end=None, n=None):
+        """
+        Returns a generator that extracts all parse trees from the chart.
+
+        Keyword arguments:
+        startcats -- The toplevel nonterminal(s) to use.
+                     (Default: taken from the grammar).
+        start, end -- The start resp. end positions to extract from.
+                      (Default: spanning the whole sentence).
+        n      -- the maximum number of parse trees to be returned.
+        """
         if end is None:
             end = len(self.tokens)
         if startcats is None:
@@ -109,10 +244,12 @@ class Parser(object):
                         return
 
     def process_token(self, k, trace=None):
+        """Process the token at position k, adding to the internal chart."""
         if trace is None: trace = self.trace
         process_token(k, self.tokens, self.chart, self.statistics, self.grammar, trace=trace, **self.strategy)
 
     def init_chart(self, tokens):
+        """Initialize the chart before parsing."""
         if not isinstance(tokens, (list, tuple)):
             raise TypeError("Tokens must be a list or a tuple of strings")
         self.tokens = tokens
@@ -132,9 +269,11 @@ class Parser(object):
     ## Pretty-printing
 
     def print_chart(self):
+        """Print the chart in MultiMarkdown format."""
         print_chart(self.chart, self.tokens, self.grammar['startcats'], self.grammar['sequences'])
 
     def print_parse_statistics(self):
+        """Print a MultiMarkdown table with statistics from parsing."""
         statkeys = [set(stat) for stat in self.statistics.itervalues() if isinstance(stat, dict)]
         total_first = lambda key: None if key == "TOTAL" else key
         statkeys = sorted(set.union(*statkeys), key=total_first)
@@ -150,7 +289,7 @@ class Parser(object):
                 print "%-11s|%9s |" % (hdr, value)
 
     def print_grammar_statistics(self):
-        print
+        """Print a MultiMarkdown table with statistics of the grammar."""
         print "Grammar statistics          ||"
         print "-------------------|--------:|"
         print "Nr. terminals      |%8d |" % len(set(word for rhs in self.grammar['sequences'].itervalues()
@@ -172,13 +311,13 @@ class Parser(object):
         if 'leftcorner' in self.grammar:
             print "Nr. leftc. pairs   |%8d |" % objsize(self.grammar['leftcorner'])
             print "Nr. lcword. pairs  |%8d |" % objsize(self.grammar['lcwords'])
-        print
 
 
 ######################################################################
 ## Grammar sanity check
 
 def check_grammar_rules(mcfrules):
+    """Check that the grammar rules are in correct format."""
     catlabels = {}
     sequences = {}
     for nr, mcfrule in enumerate(mcfrules):
@@ -240,6 +379,11 @@ def check_grammar_rules(mcfrules):
 ## Initializing and optimizing the grammar
 
 def initialize_topdown_grammar(grammar, mcfrules, trace=None):
+    """
+    Convert the mcfrules to a grammar suitable for topdown parsing.
+    The topdown grammar is stored in grammar['topdown'], and the
+    linearization sequences are stored in grammar['sequences'].
+    """
     if trace: ctr = TracedCounter("Topdown grammar:")
     td_grammar = grammar['topdown'] = defaultdict(list)
     catlabels = grammar['catlabels'] = {}
@@ -273,6 +417,11 @@ def initialize_topdown_grammar(grammar, mcfrules, trace=None):
 
 
 def initialize_bottomup_grammar(grammar, trace=None):
+    """
+    Convert the grammar to a format suitable for bottomup parsing.
+    The bottomup grammar is stored in grammar['bottomup'], and it requires 
+    that grammar['topdown'] and grammar['sequences'] are already calculated.
+    """
     td_grammar = grammar['topdown']
     sequences = grammar['sequences']
     bu_grammar = grammar['bottomup'] = defaultdict(list)
@@ -293,6 +442,12 @@ def initialize_bottomup_grammar(grammar, trace=None):
 
 
 def initialize_emptycats(grammar, trace=None):
+    """
+    Calculates the constituents that can recognize the empty string.
+    The empty constituents are stored as a set in grammar['emptycats'], 
+    and it requires that grammar['topdown'] and grammar['sequences'] 
+    are already calculated.
+    """
     td_grammar = grammar['topdown']
     sequences = grammar['sequences']
     emptycats = grammar['emptycats'] = set()
@@ -325,6 +480,12 @@ def initialize_emptycats(grammar, trace=None):
 
 
 def initialize_leftcorners(grammar, trace=None):
+    """
+    Calculate the left-corner tables from the grammar.
+    The tables are stored in grammar['leftcorner'] and grammar['lcword'].
+    It requires that grammar['topdown'], grammar['sequences'] and 
+    grammar['emptycats'] are already calculated.
+    """
     td_grammar = grammar['topdown']
     sequences = grammar['sequences']
     emptycats = grammar['emptycats'] 
@@ -376,6 +537,14 @@ def initialize_leftcorners(grammar, trace=None):
 
 
 def initialize_emptyfollowers(grammar, trace=None):
+    """
+    Calculate what tokens can follow after each constituent.
+    The followers are stored in grammar['emptyfollowers'].
+    It requires that grammar['topdown'], grammar['sequences'],
+    grammar['emptycats'] and grammar['leftcorner'] are calculated.
+
+    NOTE: This is not working properly yet!
+    """
     emptyfollowers = grammar['emptyfollowers'] = defaultdict(set)
     if trace: ctr = TracedCounter("Empty followers:")
     td_grammar = grammar['topdown']
@@ -418,6 +587,17 @@ def initialize_emptyfollowers(grammar, trace=None):
 # the transformation is not equivalent.
 
 def remove_emptyrules(grammar, trace=None):
+    """
+    Remove rules with empty constituents from the grammar.
+    Requires that grammar['topdown'] and grammar['sequences']
+    are calculated. The old topdown grammar and sequences
+    are replaced by the new nonempty grammar, as are
+    grammar['catlabels'], grammar['is_empty']. 
+    The removed rules are put in grammar['emptyrules'].
+
+    NOTE: This transformation does not always produce an 
+    equivalent grammar!
+    """
     if trace: ctr = TracedCounter("Remove emptyrules:", interval=1000)
     sequences = grammar['sequences']
     cats = set()
@@ -519,6 +699,17 @@ def remove_emptyrules(grammar, trace=None):
 
 
 def remove_emptyrules_alternative(grammar, trace=None):
+    """
+    Remove rules with empty constituents from the grammar.
+    Requires that grammar['topdown'] and grammar['sequences']
+    are calculated. The old topdown grammar and sequences
+    are replaced by the new nonempty grammar, as are
+    grammar['catlabels'], grammar['is_empty']. 
+    The removed rules are put in grammar['emptyrules'].
+
+    NOTE: This is an alternative algorithm, which unfortunately
+    does not either produce an equivalent grammar...
+    """
     if trace: ctr = TracedCounter("Remove emptyrules:", interval=1000)
     oldrules = grammar['topdown']
     sequences = grammar['sequences']
@@ -630,6 +821,11 @@ def remove_emptyrules_alternative(grammar, trace=None):
 ## Generating syntax trees from a set of grammar rules
 
 def generate_trees(cat, rules, backup_rules={}, visited=set()):
+    """
+    Generate all syntax trees from a set of rules.
+    The backup_rules are used if the category is not found in 
+    the given rules.
+    """
     catrules = rules.get(cat)
     if not catrules: 
         cat = get_orig(cat)
@@ -644,6 +840,9 @@ def generate_trees(cat, rules, backup_rules={}, visited=set()):
                 yield (fun,) + children
 
 def generate_children(nr, args, rules, backup_rules, visited):
+    """
+    Generate all children sequences from args, a sequence of nonterminals.
+    """
     if nr >= len(args): 
         yield ()
     else:
@@ -656,6 +855,7 @@ def generate_children(nr, args, rules, backup_rules, visited):
 ## Parsing one token at the time
 
 def process_token(k, tokens, chart, statistics, grammar, trace=None, **strategy):
+    """Process token nr k, adding items to the chart."""
     if trace > 1:
         token = '"%s"' % (tokens[k-1],) if k > 0 else "---"
         header = "State %d: %s" % (k, token)
@@ -701,6 +901,7 @@ def process_token(k, tokens, chart, statistics, grammar, trace=None, **strategy)
 ## parsing grammars with epsilon rules
 
 def process_token_emptygrammar(k, tokens, chart, grammar, agenda, add_edge, topdown, bottomup, filtered):
+    """Process token nr k, if the grammar contains empty constituents."""
     assert bool(topdown) != bool(bottomup), "Parsing should be either topdown or bottomup"
     sequences = grammar['sequences']
     active_chart = chart[Active]
@@ -856,6 +1057,7 @@ def process_token_emptygrammar(k, tokens, chart, grammar, agenda, add_edge, topd
 ## parsing grammars with no epsilon rules
 
 def process_token_nonempty(k, tokens, chart, grammar, agenda, add_edge, topdown, bottomup, filtered):
+    """Process token nr k, if the grammar does not contain empty constituents."""
     assert bool(topdown) != bool(bottomup), "Parsing should be either topdown or bottomup"
     sequences = grammar['sequences']
     active_chart = chart[Active]
@@ -1058,9 +1260,10 @@ def powerset(seq, n=0):
 ## Pretty-printing 
 
 def print_chart(chart, tokens, startcats, sequences):
+    """Print the final chart in MultiMarkdown format."""
     for k in range(1 + len(tokens)):
         predicted = chart[Symbol][k]
-        found = set.union(*chart[Found][k].values())
+        found = set.union(*chart[Found][k])
         actives = set.union(*chart[Active][k].values())
 
         if k > 0:
@@ -1141,6 +1344,22 @@ SFun.__str__ = lambda self: "%s[%s]" % (self.orig, ",".join("%s" % (a,) for a in
 ## Tracing
 
 class TracedCounter(object):
+    """
+    A counter suitable for tracing. 
+
+    At a given interval, it prints a "." to standard error.
+    When the counter is finalized, it prints the final count
+    and the number of seconds it took.
+
+        >>> sys.stderr = sys.stdout
+        >>> ctr = TracedCounter("Test counter", interval=2); \
+            ctr.inc(); ctr.inc(); ctr.inc(); ctr.inc(); \
+            ctr.inc(); ctr.inc(); ctr.inc(); ctr.inc(); \
+            ctr.finalize()
+        % Test counter.... [8] 0.00 s / 0.00 s
+        >>> sys.stderr = sys.__stderr__
+    """
+
     def __init__(self, title, interval=10000):
         sys.stderr.write("%% %s" % (title,))
         sys.stderr.flush()
@@ -1160,3 +1379,11 @@ class TracedCounter(object):
         self.clock = time.clock() - self.startclock
         sys.stderr.write(" [%d] %.2f s / %.2f s\n" % (self.counter, self.clock, self.time))
         sys.stderr.flush()
+
+
+######################################################################
+## Testing the examples in docstrings
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
