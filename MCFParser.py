@@ -53,7 +53,6 @@ A grammar can also use string labels, instead of integers:
 For more information, try help(Parser).
 """
 
-
 from collections import defaultdict, namedtuple
 import sys
 import time
@@ -292,11 +291,13 @@ class Parser(object):
         """Print a MultiMarkdown table with statistics of the grammar."""
         print "Grammar statistics          ||"
         print "-------------------|--------:|"
-        print "Nr. terminals      |%8d |" % len(set(word for rhs in self.grammar['sequences'].itervalues()
-                                                     for word in rhs if type(word) is not RHSSymbol))
+        print "Nr. terminals      |%8d |" % len(set(word for rhss in self.grammar['sequences'].itervalues()
+                                                    for rhs in rhss.itervalues() for word in rhs 
+                                                    if type(word) is not RHSSymbol))
         print "Nr. nonterminals   |%8d |" % len(set(self.grammar['catlabels']))
         print "Nr. nonterm-const. |%8d |" % objsize(self.grammar['catlabels'])
         print "Nr. grammar rules  |%8d |" % objsize(self.grammar['topdown'])
+        print "Epsilon-free       |%8s |" % (not self.grammar['is_empty'],)
         if 'emptyrules' in self.grammar:
             print "Nr. empty rules    |%8d |" % objsize(self.grammar['emptyrules'])
         print "Nr. constituents   |%8d |" % sum(len(self.grammar['sequences'][rule.fun]) 
@@ -347,7 +348,8 @@ def check_grammar_rules(mcfrules):
         if cat not in catlabels:
             catlabels[cat] = lbls
         elif catlabels[cat] != lbls:
-            raise ValueError(preerror + "Inconsistent right-hand side labels for category %r" % (cat,))
+            raise ValueError(preerror + "Inconsistent right-hand side labels: "
+                             "%s != %s" % (lbls, catlabels[cat]))
 
         lbltypes = set(map(type, rhss.iterkeys()))
         if len(lbltypes) > 1:
@@ -1158,7 +1160,6 @@ def process_token_nonempty(k, tokens, chart, grammar, agenda, add_edge, topdown,
 
             elif topdown:
                 if (not filtered
-                    or predict in grammar['emptycats']
                     or k < len(tokens) and any(predict in grammar['leftcorner'][sym]
                                                for sym in grammar['lcwords'][tokens[k]])
                 ):

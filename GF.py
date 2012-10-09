@@ -296,7 +296,7 @@ class GFParser(object):
         if isinstance(startcats, basestring):
             startcats = [startcats]
         if startcats:
-            startcats = [ccat for cat in startcats for ccat in concrete.cnccats[cat]]
+            startcats = [ccat for cat in startcats for ccat in self.concrete.cnccats[cat]]
         for mcftree in self.mcfparser.extract_trees(startcats, start, end, n):
             yield self.convert_mcftree(mcftree)
 
