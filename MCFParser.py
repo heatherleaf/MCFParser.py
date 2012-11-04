@@ -204,6 +204,11 @@ class Parser(object):
         for k in self.positions:
             if k > 0 and trace == 1: ctr.inc(tokens[k-1][0])
             self.process_token(k, trace)
+        stat = self.statistics['Chart']
+        if not stat:
+            for key, chrt in self.chart.iteritems():
+                key = getattr(key, '__name__', key)
+                stat[key] = objsize(chrt)
         for stat in self.statistics.itervalues():
             if isinstance(stat, dict):
                 stat['TOTAL'] = sum(stat[key] for key in stat if key != 'TOTAL'
@@ -865,7 +870,7 @@ def process_token(k, tokens, chart, statistics, grammar, trace=None, **strategy)
         print "--------|---------------------|-------------------------"
 
     agenda = []
-    if trace is None or trace is False:
+    if not trace:
         def add_edge(edge, edgeset, name, *antecedents):
             if edge not in edgeset:
                 edgeset.add(edge)
@@ -1244,12 +1249,16 @@ def objsize(obj):
     Returns the size of a deeply nested object (dict/list/set).
     The size of each leaf (non-dict/list/set) is 1.
     """
+    assert isinstance(obj, (dict, list, set)), obj
+    if not obj:
+        return 0
     if isinstance(obj, dict):
-        return sum(objsize(v) for v in obj.itervalues())
-    elif isinstance(obj, (list, set)):
+        obj = obj.values() 
+    elem = next(iter(obj))
+    if isinstance(elem, (dict, list, set)):
         return sum(objsize(v) for v in obj)
     else:
-        return 1
+        return len(obj)
 
 
 def powerset(seq, n=0):
