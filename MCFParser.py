@@ -967,43 +967,46 @@ def process_token_emptygrammar(k, tokens, chart, grammar, agenda, add_edge, topd
         edge = agenda.pop()
         if type(edge) is Active:
             active = edge
+            nextsym = active.nextsym
+            rule = active.rule
             assert k == active.end, (k, active.end, active)
-            if active.nextsym is None:
+            if nextsym is None:
                 # complete
-                found = Found(active.rule.cat, active.lbl, active.start, k)
-                newrule = Rule(active.rule.fun, found, active.rule.args)
+                found = Found(rule.cat, active.lbl, active.start, k)
+                newrule = Rule(rule.fun, found, rule.args)
                 add_edge(found, found_chart[k][active.start], "complete", active)
                 add_edge(newrule, dynrule_chart[found], "complete", active)
 
-            elif type(active.nextsym) is Symbol:
+            elif type(nextsym) is Symbol:
                 # predict item
-                add_edge(active.nextsym, predict_chart[k][active.nextsym.cat], "pred. item", active)
+                add_edge(nextsym, predict_chart[k][nextsym.cat], "pred. item", active)
                 # combine
-                found = Found(active.nextsym.cat, active.nextsym.lbl, k, k)
+                found = Found(nextsym.cat, nextsym.lbl, k, k)
                 if found in found_chart[k][k]:
                     combine_inference_rule(active, found, sequences, active_chart, add_edge, "combine", active, found)
 
         elif type(edge) is Rule:
             # predict next
             rule = edge
-            assert k == rule.cat.end, (k, rule.cat.end, rule)
-            for predict in predict_chart[k][rule.cat]:
-                assert rule.cat == predict.cat, (rule.cat, predict.cat)
+            cat = rule.cat
+            assert k == cat.end, (k, cat.end, rule)
+            for predict in predict_chart[k][cat]:
+                assert cat == predict.cat, (cat, predict.cat)
                 add_active_edge(k, k, predict.lbl, 0, rule, sequences, active_chart, add_edge, "pred. next", rule, predict)
 
         elif type(edge) is Symbol:
             predict = edge
-            if type(predict.cat) is Found:
+            cat = predict.cat
+            if type(cat) is Found:
                 # predict next
-                for rule in dynrule_chart[predict.cat]:
-                    assert predict.cat == rule.cat, (predict.cat, rule.cat)
+                for rule in dynrule_chart[cat]:
+                    assert cat == rule.cat, (cat, rule.cat)
                     add_active_edge(k, k, predict.lbl, 0, rule, sequences, active_chart, add_edge, "pred. next", rule, predict)
 
             elif topdown:
                 if (not filtered
                     or predict in grammar['emptycats']
-                    or k < len(tokens) and any(predict in grammar['leftcorner'][sym]
-                                               for sym in grammar['lcwords'][tokens[k]])
+                    or k < len(tokens) and leftcorner_predict_token(predict, tokens[k], grammar)
                 ):
                     # predict topdown
                     for rule in grammar['topdown'][predict.cat]:
@@ -1017,7 +1020,6 @@ def process_token_emptygrammar(k, tokens, chart, grammar, agenda, add_edge, topd
 
                 # predict bottomup
                 for found in found_chart[k][k]:
-                    # nextcat, nextlbl, _j, _k = found
                     assert k == found.start == found.end, (k, found.start, found.end, found)
                     nextsym = Symbol(found.cat, found.lbl)
                     for burule in grammar['bottomup'][nextsym]:
@@ -1028,25 +1030,26 @@ def process_token_emptygrammar(k, tokens, chart, grammar, agenda, add_edge, topd
         elif type(edge) is Found:
             found = edge
             assert k == found.end, (k, found.end, found)
+            start = found.start
             nextsym = Symbol(found.cat, found.lbl)
             # combine
-            for active in active_chart[found.start][nextsym]:
+            for active in active_chart[start][nextsym]:
                 combine_inference_rule(active, found, sequences, active_chart, add_edge, "combine", active, found)
 
             if bottomup:
                 # predict bottomup
                 if not filtered:
                     for burule in grammar['bottomup'][nextsym]:
-                        active = Active(found.start, found.start, burule.lbl, nextsym, 0, burule.rule)
+                        active = Active(start, start, burule.lbl, nextsym, 0, burule.rule)
                         combine_inference_rule(active, found, sequences, active_chart, add_edge, "pred. BU", found)
                 else:
-                    predicts = predict_chart[found.start]
+                    predicts = predict_chart[start]
                     if predicts:
-                        if found.start == k:
+                        if start == k:
                             predicts = set.union(*predicts.itervalues())
                         for burule in grammar['bottomup'][nextsym]:
                             if not predicts.isdisjoint(grammar['leftcorner'][burule.sym]):
-                                active = Active(found.start, found.start, burule.lbl, nextsym, 0, burule.rule)
+                                active = Active(start, start, burule.lbl, nextsym, 0, burule.rule)
                                 combine_inference_rule(active, found, sequences, active_chart, add_edge, "pred. BU", found)
 
         else:
@@ -1106,24 +1109,25 @@ def process_token_nonempty(k, tokens, chart, grammar, agenda, add_edge, topdown,
 
         elif type(edge) is Found:
             found = edge
-            assert k == found.end > found.start, (k, found.end, found.start, found)
+            start = found.start
+            assert k == found.end > start, (k, found.end, start, found)
             nextsym = Symbol(found.cat, found.lbl)
             # combine
-            for active in active_chart[found.start][nextsym]:
+            for active in active_chart[start][nextsym]:
                 combine_inference_rule(active, found, sequences, active_chart, add_edge, "combine", active, found)
 
             # predict bottomup
             if bottomup:
                 if not filtered:
                     for burule in grammar['bottomup'][nextsym]:
-                        active = Active(found.start, found.start, burule.lbl, nextsym, 0, burule.rule)
+                        active = Active(start, start, burule.lbl, nextsym, 0, burule.rule)
                         combine_inference_rule(active, found, sequences, active_chart, add_edge, "pred. BU", found)
                 else:
-                    predicts = predict_chart[found.start]
+                    predicts = predict_chart[start]
                     if predicts:
                         for burule in grammar['bottomup'][nextsym]:
                             if not predicts.isdisjoint(grammar['leftcorner'][burule.sym]):
-                                active = Active(found.start, found.start, burule.lbl, nextsym, 0, burule.rule)
+                                active = Active(start, start, burule.lbl, nextsym, 0, burule.rule)
                                 combine_inference_rule(active, found, sequences, active_chart, add_edge, "pred. BU", found)
 
         else:
@@ -1147,26 +1151,27 @@ def process_token_nonempty(k, tokens, chart, grammar, agenda, add_edge, topdown,
 
         if type(edge) is Active:
             active = edge
+            nextsym = active.nextsym
             assert k == active.end, (k, active.end, active)
-            if type(active.nextsym) is Symbol:
+            if type(nextsym) is Symbol:
                 # predict item
-                add_edge(active.nextsym, predict_chart[k], "pred. item", active)
+                add_edge(nextsym, predict_chart[k], "pred. item", active)
 
         elif type(edge) is Symbol:
             predict = edge
-            if type(predict.cat) is Found:
+            cat = predict.cat
+            if type(cat) is Found:
                 # predict next
-                for rule in dynrule_chart[predict.cat]:
-                    assert predict.cat == rule.cat, (predict.cat, rule.cat)
+                for rule in dynrule_chart[cat]:
+                    assert cat == rule.cat, (cat, rule.cat)
                     add_active_edge(k, k, predict.lbl, 0, rule, sequences, active_chart, add_edge, "pred. next", rule, predict)
 
             elif topdown:
                 if (not filtered
-                    or k < len(tokens) and any(predict in grammar['leftcorner'][sym]
-                                               for sym in grammar['lcwords'][tokens[k]])
+                    or k < len(tokens) and leftcorner_predict_token(predict, tokens[k], grammar)
                 ):
                     # predict topdown
-                    for rule in grammar['topdown'][predict.cat]:
+                    for rule in grammar['topdown'][cat]:
                         add_active_edge(k, k, predict.lbl, 0, rule, sequences, active_chart, add_edge, "pred. TD", predict)
 
         else:
@@ -1203,6 +1208,12 @@ def update_rule(rule, lbl, p, newarg, sequences):
     return Rule(rule.fun, rule.cat, newargs)
 
 
+def leftcorner_predict_token(predict, token, grammar):
+    for sym in grammar['lcwords'][token]:
+        if predict in grammar['leftcorner'][sym]:
+            return True
+    return False
+
 
 ######################################################################
 ## Helper classes and functions
@@ -1223,6 +1234,8 @@ Active.__str__ = lambda self: ("[%s-%s: %s = ... * %s/%s ... | %s]" %
 
 Rule = namedtuple("Rule", "fun cat args")
 Rule.__str__ = lambda self: "%s --> %s (%s)" % (self.cat, self.fun, ", ".join("%s" % (a,) for a in self.args))
+
+BottomupRule = namedtuple("BottomupRule", "rule lbl sym")
 
 
 NEFun = namedtuple("NEFun", "orig lbls")
