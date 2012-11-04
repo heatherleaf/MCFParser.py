@@ -1202,93 +1202,23 @@ def update_rule(rule, lbl, p, newarg, sequences):
 ######################################################################
 ## Helper classes and functions
 
-class Symbol(object):
-    __slots__ = ('cat', 'lbl')
-    def __init__(self, cat, lbl):
-        self.cat = cat
-        self.lbl = lbl
-    def __str__(self): 
-        return "<%s.%s>" % (self.cat, show_lbl(self.lbl))
-    def __hash__(self):
-        return hash((self.cat, self.lbl))
-    def __eq__(self, other):
-        return (type(self) == type(other) and
-                self.lbl == other.lbl and self.cat == other.cat)
+Symbol = namedtuple("Symbol", "cat lbl")
+Symbol.__str__ = lambda self: "<%s.%s>" % (self.cat, show_lbl(self.lbl))
 
-class RHSSymbol(object):
-    __slots__ = ('arg', 'lbl')
-    def __init__(self, arg, lbl):
-        self.arg = arg
-        self.lbl = lbl
-    def __str__(self): 
-        return "<%s.%s>" % (self.arg, show_lbl(self.lbl))
-    def toSymbol(self, args): 
-        return Symbol(args[self.arg], self.lbl)
-    def __hash__(self):
-        return hash((self.arg, self.lbl))
-    def __eq__(self, other):
-        return (type(self) == type(other) and
-                self.lbl == other.lbl and self.arg == other.arg)
+RHSSymbol = namedtuple("RHSSymbol", "arg lbl")
+RHSSymbol.toSymbol = lambda self, args: Symbol(args[self.arg], self.lbl)
+RHSSymbol.__str__ = lambda self: "<%s.%s>" % (self.arg, show_lbl(self.lbl))
 
-class Found(object):
-    __slots__ = ('cat', 'lbl', 'start', 'end')
-    def __init__(self, cat, lbl, start, end):
-        self.cat = cat
-        self.lbl = lbl
-        self.start = start
-        self.end = end
-    def __str__(self): 
-        return "%s{%s:%s-%s}" % (self.cat, show_lbl(self.lbl), self.start, self.end)
-    def __hash__(self):
-        return hash((self.cat, self.lbl, self.start, self.end))
-    def __eq__(self, other):
-        return (type(self) == type(other) and
-                self.lbl == other.lbl and self.cat == other.cat and
-                self.start == other.start and self.end == other.end)
+Found = namedtuple("Found", "cat lbl start end")
+Found.__str__ = lambda self: "%s{%s:%s-%s}" % (self.cat, show_lbl(self.lbl), self.start, self.end)
 
-class Active(object):
-    __slots__ = ('start', 'end', 'lbl', 'nextsym', 'pos', 'rule')
-    def __init__(self, start, end, lbl, nextsym, pos, rule): 
-        self.start = start
-        self.end = end
-        self.lbl = lbl
-        self.nextsym = nextsym
-        self.pos = pos
-        self.rule = rule
-    def __str__(self): 
-        return ("[%s-%s: %s = ... * %s/%s ... | %s]" % 
-                (self.start, self.end, self.lbl, self.nextsym, self.pos, self.rule))
-    def __hash__(self):
-        return hash((self.start, self.end, self.lbl, self.nextsym, self.pos, self.rule))
-    def __eq__(self, other):
-        return (type(self) == type(other) and
-                self.start == other.start and self.end == other.end and
-                self.lbl == other.lbl and self.nextsym == other.nextsym and
-                self.pos == other.pos and self.rule == other.rule)
+Active = namedtuple("Active", "start end lbl nextsym pos rule")
+Active.__str__ = lambda self: ("[%s-%s: %s = ... * %s/%s ... | %s]" % 
+                               (self.start, self.end, self.lbl, self.nextsym, self.pos, self.rule))
 
-class Rule(object):
-    __slots__ = ('fun', 'cat', 'args')
-    def __init__(self, fun, cat, args):
-        self.fun = fun
-        self.cat = cat
-        self.args = args
-    def __str__(self):
-        return "%s --> %s (%s)" % (self.cat, self.fun, ", ".join("%s" % (a,) for a in self.args))
-    def __hash__(self):
-        return hash((self.fun, self.cat, self.args))
-    def __eq__(self, other):
-        return (type(self) == type(other) and self.fun == other.fun and self.cat == other.cat and self.args == other.args)
+Rule = namedtuple("Rule", "fun cat args")
+Rule.__str__ = lambda self: "%s --> %s (%s)" % (self.cat, self.fun, ", ".join("%s" % (a,) for a in self.args))
 
-class BottomupRule(object):
-    __slots__ = ('rule', 'lbl', 'sym')
-    def __init__(self, rule, lbl, sym):
-        self.rule = rule
-        self.lbl = lbl
-        self.sym = sym
-    def __str__(self): 
-        return str((self.rule, self.lbl, self.sym))
-    __hash__ = NotImplemented
-    __eq__ = NotImplemented
 
 NEFun = namedtuple("NEFun", "orig lbls")
 NEFun.__str__ = lambda self: "%s/%s" % (self.orig, self.lbls)
