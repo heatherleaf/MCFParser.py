@@ -260,6 +260,7 @@ class Parser(object):
             raise TypeError("Tokens must be a list or a tuple of strings")
         self.tokens = tokens
         self.positions = range(1 + len(tokens))
+        self.chart = {}
         self.chart[Active] = [defaultdict(set) for _ in self.positions]
         self.chart[Found] = [[set() for _ in self.positions] for _ in self.positions]
         self.chart[Rule] = defaultdict(set)
@@ -267,6 +268,7 @@ class Parser(object):
             self.chart[Symbol] = [defaultdict(set) for _ in self.positions]
         else:
             self.chart[Symbol] = [set() for _ in self.positions]
+        self.statistics = {}
         self.statistics['Time'] = 0.0
         self.statistics['Chart'] = defaultdict(int) 
         self.statistics['Inferences'] = defaultdict(int)
