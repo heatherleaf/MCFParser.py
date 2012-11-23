@@ -5,8 +5,6 @@
 
 ### MCFParser.py
 
-- get inspired by Angelov's pseudocode
-
 - add support for Pickle
 
 - d[a][b] is faster than d[a,b], but how much?
@@ -23,7 +21,7 @@
 alternatively: just filter out the lexical rules that do not cover the input
 
 - there's a bug somewhere in remove_emptyrules(), it fails for the
-  grammar test/emptygrammar.py:
+  grammar test/emptygrammar.py
 
 - split the code into several files
 
