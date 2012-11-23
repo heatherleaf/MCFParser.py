@@ -130,6 +130,8 @@ class Parser(object):
         filtered  -- perform left-corner filtering (works with topdown/bottomup).
         """
 
+        if isinstance(mcfrules, dict):
+            mcfrules = mcfrules.iteritems()
         if check:
             if not isinstance(mcfrules, (list, tuple, set)):
                 mcfrules = list(mcfrules)
@@ -328,10 +330,7 @@ def check_grammar_rules(mcfrules):
     sequences = {}
     for nr, mcfrule in enumerate(mcfrules):
         try:
-            try: 
-                (fun, cat, args), rhss = mcfrule
-            except ValueError:
-                fun, cat, args, rhss = mcfrule
+            fun, cat, args, rhss = split_mcfrule(mcfrule)
         except:
             raise TypeError("MCF rule %d: Rule must be a tuple of the form (fun, cat, args, rhss) "
                             "or ((fun, cat, args), rhss)" % (nr,))
@@ -382,6 +381,17 @@ def check_grammar_rules(mcfrules):
             raise ValueError(preerror + "Inconsistent right-hand-sides")
 
 
+def split_mcfrule(mcfrule):
+    try: 
+        (fun, cat, args), rhss = mcfrule
+    except ValueError:
+        try: 
+            fun, (cat, args, rhss) = mcfrule
+        except ValueError:
+            fun, cat, args, rhss = mcfrule
+    return fun, cat, args, rhss
+
+
 ######################################################################
 ## Initializing and optimizing the grammar
 
@@ -397,10 +407,7 @@ def initialize_topdown_grammar(grammar, mcfrules, trace=None):
     sequences = grammar['sequences'] = {}
 
     for mcfrule in mcfrules:
-        try: 
-            (fun, cat, args), rhss = mcfrule
-        except ValueError:
-            fun, cat, args, rhss = mcfrule
+        fun, cat, args, rhss = split_mcfrule(mcfrule)
 
         convertsym = lambda sym: (RHSSymbol(*sym) 
                                   if isinstance(sym, tuple) and type(sym) is not RHSSymbol 
