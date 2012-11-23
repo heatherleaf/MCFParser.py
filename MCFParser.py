@@ -56,6 +56,7 @@ For more information, try help(Parser).
 from collections import defaultdict, namedtuple
 import sys
 import time
+import math
 
 class Parser(object):
     """
@@ -110,7 +111,9 @@ class Parser(object):
            about the grammar and the final chart.
     """
 
-    def __init__(self, mcfrules, startcats, check=True, trace=None, 
+    def __init__(self, mcfrules, startcats,
+                 probabilities=None, weights=None,
+                 check=True, trace=None, 
                  nonempty=False, topdown=False, bottomup=False, filtered=False):
         """
         Create a PMCFG parser. 
@@ -121,6 +124,7 @@ class Parser(object):
                      nonterminal, and 'args' is a tuple/list of nonterminals.
                      'rhss' is a dict/list of linearization sequences.
         startcats -- a list/tuple/set of starting nonterminals.
+        probabilities, weights -- mutually exclusive
         check     -- perform sanity check on the grammar rules.
         trace     -- the general tracing level for all methods (None/0/1/2).
         nonempty  -- transform the grammar to non-empty form (this can in some
@@ -153,6 +157,15 @@ class Parser(object):
         if not isinstance(startcats, (list, tuple, set)):
             raise TypeError("Unexpected type for starting categories: %s" % type(startcats).__name__)
         self.grammar['startcats'] = startcats
+
+        if probabilities:
+            if weights:
+                raise ValueError("Either probabilities or weights, not both!")
+            assert all(0 <= p <= 1 for p in probabilities.itervalues())
+            weights = dict((key, -math.log(prob)) for (key, prob) in probabilities.iteritems())
+        if weights:
+            assert all(0 <= w for w in weights.itervalues())
+            self.grammar['weights'] = weights
 
         initialize_topdown_grammar(self.grammar, mcfrules, self.trace)
         if self.grammar['is_empty'] and self.nonempty: 
