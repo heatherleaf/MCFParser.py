@@ -3,7 +3,7 @@
 
 .PHONY: help clean
 
-ALLGRAMMARS=abcd engaux larsonian1 larsonian2 FraCaSEng FraCaSSwe AllEng
+ALLGRAMMARS=abcd emptygrammar engaux larsonian1 larsonian2 FraCaSEng FraCaSSwe AllEng
 ALLPARSERS=-bu -td -bu-ne -td-ne -bu-lc -td-lc -bu-lc-ne -td-lc-ne
 
 PARSERS?=$(ALLPARSERS)
