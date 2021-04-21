@@ -38,7 +38,7 @@ these formalisms too. Example usage:
     >>> parser = Parser(grammar, ['S'])
 
     >>> for tree in parser.parse("a a a b b b c c c d d d".split()):
-    ...     print tree
+    ...     print(tree)
     ('f', ('g', ('g', ('h',))))
 
 A grammar can also use string labels, instead of integers:
@@ -72,14 +72,14 @@ class Parser(object):
         >>> parser = Parser(grammar, ['S'], bottomup=True, filtered=True, trace=0)
 
         >>> for tree in parser.parse("a a b b c c d d".split()):
-        ...     print tree
+        ...     print(tree)
         ('f', ('g', ('h',)))
 
         >>> parser.chart_parse("a a b b c c d d".split())
         True
 
         >>> for tree in parser.extract_trees():
-        ...     print tree
+        ...     print(tree)
         ('f', ('g', ('h',)))
 
         >>> parser.print_grammar_statistics()
@@ -135,7 +135,7 @@ class Parser(object):
         """
 
         if isinstance(mcfrules, dict):
-            mcfrules = mcfrules.iteritems()
+            mcfrules = mcfrules.items()
         if check:
             if not isinstance(mcfrules, (list, tuple, set)):
                 mcfrules = list(mcfrules)
@@ -152,7 +152,7 @@ class Parser(object):
         self.chart = {}
         self.statistics = {}
         self.grammar = {}
-        if isinstance(startcats, basestring):
+        if isinstance(startcats, str):
             startcats = [startcats]
         if not isinstance(startcats, (list, tuple, set)):
             raise TypeError("Unexpected type for starting categories: %s" % type(startcats).__name__)
@@ -161,10 +161,10 @@ class Parser(object):
         if probabilities:
             if weights:
                 raise ValueError("Either probabilities or weights, not both!")
-            assert all(0 <= p <= 1 for p in probabilities.itervalues())
-            weights = dict((key, -math.log(prob)) for (key, prob) in probabilities.iteritems())
+            assert all(0 <= p <= 1 for p in probabilities.values())
+            weights = dict((key, -math.log(prob)) for (key, prob) in probabilities.items())
         if weights:
-            assert all(0 <= w for w in weights.itervalues())
+            assert all(0 <= w for w in weights.values())
             self.grammar['weights'] = weights
 
         initialize_topdown_grammar(self.grammar, mcfrules, self.trace)
@@ -221,13 +221,13 @@ class Parser(object):
             self.process_token(k, trace)
         stat = self.statistics['Chart']
         if not stat:
-            for key, chrt in self.chart.iteritems():
+            for key, chrt in self.chart.items():
                 key = getattr(key, '__name__', key)
                 stat[key] = objsize(chrt)
-        for stat in self.statistics.itervalues():
+        for stat in self.statistics.values():
             if isinstance(stat, dict):
                 stat['TOTAL'] = sum(stat[key] for key in stat if key != 'TOTAL'
-                                    if isinstance(stat[key], (int, long, float)))
+                                    if isinstance(stat[key], (int, float)))
         if trace == 1: 
             ctr.finalize()
         elif trace > 1:
@@ -295,45 +295,45 @@ class Parser(object):
 
     def print_parse_statistics(self):
         """Print a MultiMarkdown table with statistics from parsing."""
-        statkeys = [set(stat) for stat in self.statistics.itervalues() if isinstance(stat, dict)]
+        statkeys = [set(stat) for stat in self.statistics.values() if isinstance(stat, dict)]
         total_first = lambda key: None if key == "TOTAL" else key
         statkeys = sorted(set.union(*statkeys), key=total_first)
-        print "Statistics |" + "".join("%9s |" % (key,) for key in statkeys)
-        print "-----------|" + "".join("---------:|" for key in statkeys)
-        for hdr, stat in self.statistics.iteritems():
+        print("Statistics |" + "".join("%9s |" % (key,) for key in statkeys))
+        print("-----------|" + "".join("---------:|" for key in statkeys))
+        for hdr, stat in self.statistics.items():
             if isinstance(stat, dict):
-                print "%-11s|" % (hdr,) + "".join("%9s |" % (stat.get(key, "--"),) for key in statkeys)
-        for hdr, value in self.statistics.iteritems():
+                print("%-11s|" % (hdr,) + "".join("%9s |" % (stat.get(key, "--"),) for key in statkeys))
+        for hdr, value in self.statistics.items():
             if not isinstance(value, dict):
                 if isinstance(value, float):
                     value = "%8.2f"  % (value,)
-                print "%-11s|%9s |" % (hdr, value)
+                print("%-11s|%9s |" % (hdr, value))
 
     def print_grammar_statistics(self):
         """Print a MultiMarkdown table with statistics of the grammar."""
-        print "Grammar statistics          ||"
-        print "-------------------|--------:|"
-        print "Nr. terminals      |%8d |" % len(set(word for rhss in self.grammar['sequences'].itervalues()
-                                                    for rhs in rhss.itervalues() for word in rhs 
-                                                    if type(word) is not RHSSymbol))
-        print "Nr. nonterminals   |%8d |" % len(set(self.grammar['catlabels']))
-        print "Nr. nonterm-const. |%8d |" % objsize(self.grammar['catlabels'])
-        print "Nr. grammar rules  |%8d |" % objsize(self.grammar['topdown'])
-        print "Epsilon-free       |%8s |" % (not self.grammar['is_empty'],)
+        print("Grammar statistics          ||")
+        print("-------------------|--------:|")
+        print("Nr. terminals      |%8d |" % len(set(word for rhss in self.grammar['sequences'].values()
+                                                    for rhs in rhss.values() for word in rhs 
+                                                    if type(word) is not RHSSymbol)))
+        print("Nr. nonterminals   |%8d |" % len(set(self.grammar['catlabels'])))
+        print("Nr. nonterm-const. |%8d |" % objsize(self.grammar['catlabels']))
+        print("Nr. grammar rules  |%8d |" % objsize(self.grammar['topdown']))
+        print("Epsilon-free       |%8s |" % (not self.grammar['is_empty'],))
         if 'emptyrules' in self.grammar:
-            print "Nr. empty rules    |%8d |" % objsize(self.grammar['emptyrules'])
-        print "Nr. constituents   |%8d |" % sum(len(self.grammar['sequences'][rule.fun]) 
-                                                   for rules in self.grammar['topdown'].itervalues() 
-                                                   for rule in rules)
-        print "Nr. const. lengths |%8d |" % sum(len(rhs) 
-                                                   for rules in self.grammar['topdown'].itervalues() 
+            print("Nr. empty rules    |%8d |" % objsize(self.grammar['emptyrules']))
+        print("Nr. constituents   |%8d |" % sum(len(self.grammar['sequences'][rule.fun]) 
+                                                   for rules in self.grammar['topdown'].values() 
+                                                   for rule in rules))
+        print("Nr. const. lengths |%8d |" % sum(len(rhs) 
+                                                   for rules in self.grammar['topdown'].values() 
                                                    for rule in rules
-                                                   for rhs in self.grammar['sequences'][rule.fun].itervalues())
+                                                   for rhs in self.grammar['sequences'][rule.fun].values()))
         if 'emptycats' in self.grammar:
-            print "Nr. empty const.   |%8d |" % len(self.grammar['emptycats'])
+            print("Nr. empty const.   |%8d |" % len(self.grammar['emptycats']))
         if 'leftcorner' in self.grammar:
-            print "Nr. leftc. pairs   |%8d |" % objsize(self.grammar['leftcorner'])
-            print "Nr. lcword. pairs  |%8d |" % objsize(self.grammar['lcwords'])
+            print("Nr. leftc. pairs   |%8d |" % objsize(self.grammar['leftcorner']))
+            print("Nr. lcword. pairs  |%8d |" % objsize(self.grammar['lcwords']))
 
 
 ######################################################################
@@ -363,21 +363,21 @@ def check_grammar_rules(mcfrules):
             raise TypeError(preerror + "Right-hand side must be a list, tuple or dict, "
                             "not %r" % (type(rhss).__name__,))
 
-        lbls = sorted(rhss.iterkeys())
+        lbls = sorted(rhss.keys())
         if cat not in catlabels:
             catlabels[cat] = lbls
         elif catlabels[cat] != lbls:
             raise ValueError(preerror + "Inconsistent right-hand side labels: "
                              "%s != %s" % (lbls, catlabels[cat]))
 
-        lbltypes = set(map(type, rhss.iterkeys()))
+        lbltypes = set(map(type, rhss.keys()))
         if len(lbltypes) > 1:
             raise TypeError(preerror + "Inconsistent label types in right-hand side: %s" %
                             (", ".join(map(repr, lbltypes)),))
 
         if lbltypes:
             lbltype = lbltypes.pop()
-            for lbl, rhs in rhss.iteritems():
+            for lbl, rhs in rhss.items():
                 if not isinstance(rhs, (list, tuple)):
                     raise TypeError(preerror + "Right-hand side sequence must be a list or a tuple, "
                                     "not %r" % (type(rhs).__name__,))
@@ -430,10 +430,10 @@ def initialize_topdown_grammar(grammar, mcfrules, trace=None):
 
         rhssitems = (enumerate(rhss) 
                      if isinstance(rhss, (list, tuple))
-                     else rhss.iteritems())
-        rhss = dict((lbl, map(convertsym, rhs)) for (lbl, rhs) in rhssitems)
+                     else rhss.items())
+        rhss = dict((lbl, list(map(convertsym, rhs))) for (lbl, rhs) in rhssitems)
 
-        lbls = sorted(rhss.iterkeys())
+        lbls = sorted(rhss.keys())
         catlabels[cat] = lbls
         sequences[fun] = rhss
 
@@ -441,7 +441,7 @@ def initialize_topdown_grammar(grammar, mcfrules, trace=None):
         td_grammar[cat].append(rule)
         if trace: ctr.inc()
 
-    grammar['is_empty'] = not all(rhs for rhss in sequences.itervalues() for rhs in rhss.itervalues())
+    grammar['is_empty'] = not all(rhs for rhss in sequences.values() for rhs in rhss.values())
     if trace: ctr.finalize()
 
 
@@ -455,10 +455,10 @@ def initialize_bottomup_grammar(grammar, trace=None):
     sequences = grammar['sequences']
     bu_grammar = grammar['bottomup'] = defaultdict(list)
     if trace: ctr = TracedCounter("Bottomup grammar:")
-    for tdrules in td_grammar.itervalues():
+    for tdrules in td_grammar.values():
         for rule in tdrules:
             rhss = sequences[rule.fun]
-            for lbl, rhs in rhss.iteritems():
+            for lbl, rhs in rhss.items():
                 if not rhs:
                     first = None
                 else:
@@ -484,9 +484,9 @@ def initialize_emptycats(grammar, trace=None):
         return
     if trace: ctr = TracedCounter("Empty categories:")
     agenda = [(0, rule, lbl) 
-              for tdrules in td_grammar.itervalues()
+              for tdrules in td_grammar.values()
               for rule in tdrules
-              for lbl, rhs in sequences[rule.fun].iteritems()
+              for lbl, rhs in sequences[rule.fun].items()
               if not rhs or type(rhs[0]) is RHSSymbol]
     empty_predicts = defaultdict(set)
     while agenda:
@@ -523,10 +523,10 @@ def initialize_leftcorners(grammar, trace=None):
 
     if trace: ctr = TracedCounter("Leftcorners:")
     leftcorner_parents = defaultdict(set)
-    for tdrules in td_grammar.itervalues():
+    for tdrules in td_grammar.values():
         for rule in tdrules:
             rhss = sequences[rule.fun]
-            for lbl, rhs in rhss.iteritems():
+            for lbl, rhs in rhss.items():
                 parent = Symbol(rule.cat, lbl)
                 for sym in rhs:
                     if trace: ctr.inc()
@@ -538,7 +538,7 @@ def initialize_leftcorners(grammar, trace=None):
                     if sym not in emptycats:
                         break
 
-    for sym, parents in leftcorner_parents.iteritems():
+    for sym, parents in leftcorner_parents.items():
         agenda = list(parents)
         while agenda:
             parent = agenda.pop()
@@ -550,7 +550,7 @@ def initialize_leftcorners(grammar, trace=None):
                 elif parent in leftcorner_parents:
                     agenda.extend(leftcorner_parents[parent])
 
-    for (cat, lbls) in grammar['catlabels'].iteritems():
+    for (cat, lbls) in grammar['catlabels'].items():
         for lbl in lbls:
             sym = Symbol(cat, lbl)
             leftcorner[sym].add(sym)
@@ -558,10 +558,10 @@ def initialize_leftcorners(grammar, trace=None):
     if trace: ctr.finalize()
 
     assert all(type(first) is Symbol and type(parent) is Symbol 
-               for first, parents in grammar['leftcorner'].iteritems() 
+               for first, parents in grammar['leftcorner'].items() 
                for parent in parents)
     assert all(not isinstance(word, (tuple, list, set, dict)) and type(parent) is Symbol
-               for word, parents in grammar['lcwords'].iteritems()
+               for word, parents in grammar['lcwords'].items()
                for parent in parents)
 
 
@@ -582,10 +582,10 @@ def initialize_emptyfollowers(grammar, trace=None):
     leftcorner = grammar['leftcorner']
     direct_predecessors = defaultdict(set)
 
-    for tdrules in td_grammar.itervalues():
+    for tdrules in td_grammar.values():
         for rule in tdrules:
             rhss = sequences[rule.fun]
-            for lbl, rhs in rhss.iteritems():
+            for lbl, rhs in rhss.items():
                 for (before, after) in zip(rhs, rhs[1:]):
                     if type(before) is RHSSymbol:
                         before = before.toSymbol(rule.args)
@@ -598,7 +598,7 @@ def initialize_emptyfollowers(grammar, trace=None):
                             emptyfollowers[before].add(after)
                             if trace: ctr.inc()
 
-    # for after, parents in leftcorner.iteritems():
+    # for after, parents in leftcorner.items():
     #     for parent in parents:
     #         for before in direct_predecessors[parent]:
     #             emptyfollowers[before].add(after)
@@ -606,7 +606,7 @@ def initialize_emptyfollowers(grammar, trace=None):
     # if trace: ctr.finalize()
 
     assert all(type(before) is Symbol and before in emptycats 
-               for before, afters in emptyfollowers.iteritems() for after in afters)
+               for before, afters in emptyfollowers.items() for after in afters)
 
 
 ######################################################################
@@ -635,12 +635,12 @@ def remove_emptyrules(grammar, trace=None):
     emptyrules = set()
     argrules = defaultdict(lambda:defaultdict(set))
 
-    for cat, rules in grammar['topdown'].iteritems():
+    for cat, rules in grammar['topdown'].items():
         cats.add(cat)
         newrules.update(rules)
         for rule in rules:
             rhss = sequences[rule.fun]
-            if not all(rhss.itervalues()):
+            if not all(rhss.values()):
                 agenda.add(rule)
             for argnr, arg in enumerate(rule.args):
                 argrules[arg][rule].add(argnr)
@@ -651,7 +651,7 @@ def remove_emptyrules(grammar, trace=None):
         assert rule.fun not in emptyrules, rule
         emptyrules.add(rule)
 
-        elbls = set(lbl for lbl, rhs in rhss.iteritems() if not rhs)
+        elbls = set(lbl for lbl, rhs in rhss.items() if not rhs)
         elblstr = repr(sorted(elbls))
         newfun = NEFun(rule.fun, elblstr)
         assert type(rule.fun) is not NEFun, newfun
@@ -662,7 +662,7 @@ def remove_emptyrules(grammar, trace=None):
         newrules.add(newrule)
         if trace: ctr.inc()
 
-        newrhss = dict((lbl, rhs) for (lbl, rhs) in rhss.iteritems() if rhs)
+        newrhss = dict((lbl, rhs) for (lbl, rhs) in rhss.items() if rhs)
         if newfun in sequences:
             assert sequences[newfun] == newrhss
         else:
@@ -691,10 +691,10 @@ def remove_emptyrules(grammar, trace=None):
                         newxrhss = dict((lbl, [sym for sym in rhs 
                                                if not (type(sym) is RHSSymbol and 
                                                        sym.arg in xnrs and sym.lbl in elbls)])
-                                        for (lbl, rhs) in sequences[xrule.fun].iteritems())
+                                        for (lbl, rhs) in sequences[xrule.fun].items())
                         assert newxfun not in sequences, newxrule
                         sequences[newxfun] = newxrhss
-                        if not all(newxrhss.itervalues()):
+                        if not all(newxrhss.values()):
                             agenda.add(newxrule)
 
     grammar['emptyrules'] = defaultdict(set)
@@ -718,12 +718,12 @@ def remove_emptyrules(grammar, trace=None):
         else:
             grammar['catlabels'][cat] = rulelbls
 
-    grammar['is_empty'] = not all(rhs for rhss in sequences.itervalues() for rhs in rhss.itervalues())
+    grammar['is_empty'] = not all(rhs for rhss in sequences.values() for rhs in rhss.values())
     if trace: ctr.finalize()
 
     assert not grammar['is_empty']
     assert all(not isinstance(cat, (list, set, dict)) and type(rule) is Rule 
-               for cat, rules in grammar['topdown'].iteritems() 
+               for cat, rules in grammar['topdown'].items() 
                for rule in rules)
 
 
@@ -757,7 +757,7 @@ def remove_emptyrules_alternative(grammar, trace=None):
                     argrules[arg][rule].add(nr)
             else:
                 rhss = sequences[rule.fun]
-                newrhss = dict((lbl, rhs) for (lbl, rhs) in rhss.iteritems() if rhs)
+                newrhss = dict((lbl, rhs) for (lbl, rhs) in rhss.items() if rhs)
                 lbls = tuple(sorted(newrhss))
                 newcat = NECat(rule.cat, lbls)
                 newfun = NEFun(rule.fun, (newcat,))
@@ -788,7 +788,7 @@ def remove_emptyrules_alternative(grammar, trace=None):
                     else:
                         rhss = sequences[rule.fun]
                         newrhss = {}
-                        for lbl, rhs in sequences[rule.fun].iteritems():
+                        for lbl, rhs in sequences[rule.fun].items():
                             newrhs = [sym for sym in rhs if (type(sym) is not RHSSymbol or
                                                              sym.lbl in newargs[sym.arg].lbls)]
                             if newrhs:
@@ -813,7 +813,7 @@ def remove_emptyrules_alternative(grammar, trace=None):
     for rule in newrules:
         rulecatlbls = rule.cat.lbls
         rhss = newseqs[rule.fun]
-        if rhss and all(rhss.itervalues()):
+        if rhss and all(rhss.values()):
             fun = NEFun(rule.fun, "+".join(map(str, rule.fun.lbls)))
             cat = NECat(rule.cat, str(rule.cat.lbls))
             args = tuple(NECat(arg, str(arg.lbls)) for arg in rule.args)
@@ -833,13 +833,13 @@ def remove_emptyrules_alternative(grammar, trace=None):
     grammar['startcats'] = newstarts
     grammar['catlabels'] = catlabels
     grammar['emptyrules'] = emptyrules
-    grammar['is_empty'] = not all(rhs for rhss in sequences.itervalues() for rhs in rhss.itervalues())
+    grammar['is_empty'] = not all(rhs for rhss in sequences.values() for rhs in rhss.values())
 
     if trace: ctr.finalize()
 
     assert not grammar['is_empty']
     assert all(not isinstance(cat, (list, set, dict)) and type(rule) is Rule 
-               for cat, rules in grammar['topdown'].iteritems() 
+               for cat, rules in grammar['topdown'].items() 
                for rule in rules)
 
 
@@ -888,8 +888,8 @@ def process_token(k, tokens, chart, statistics, grammar, trace=None, **strategy)
     if trace > 1:
         token = '"%s"' % (tokens[k-1],) if k > 0 else "---"
         header = "State %d: %s" % (k, token)
-        print "%-30s|||" % (header,)
-        print "--------|---------------------|-------------------------"
+        print("%-30s|||" % (header,))
+        print("--------|---------------------|-------------------------")
 
     agenda = []
     if not trace:
@@ -913,17 +913,17 @@ def process_token(k, tokens, chart, statistics, grammar, trace=None, **strategy)
                     antecedents = [chart['edgeids'][ant] for ant in antecedents]
                     trace_edge(name, edge, k, edgeid, grammar['sequences'], antecedents)
 
-    starttime = time.clock()
+    starttime = time.perf_counter()
     if grammar['is_empty']:
         process_token_emptygrammar(k, tokens, chart, grammar, agenda, add_edge, **strategy)
     else:
         process_token_nonempty(k, tokens, chart, grammar, agenda, add_edge, **strategy)
-    statistics['Time'] += time.clock() - starttime
+    statistics['Time'] += time.perf_counter() - starttime
 
     if trace > 1:
         if not chart['edgecounter']:
-            print "                              |||"
-        print
+            print("                              |||")
+        print()
 
 
 ######################################################################
@@ -972,9 +972,9 @@ def process_token_emptygrammar(k, tokens, chart, grammar, agenda, add_edge, topd
             # assert sym in grammar['emptycats']
             # if k < len(tokens):
             #     followers = grammar['emptyfollowers'][sym]
-            #     print show_sym(sym), ":", " ".join(map(show_sym, followers))
+            #     print(show_sym(sym), ":", " ".join(map(show_sym, followers)))
             #     next_token = tokens[k]
-            #     print next_token, "/", " ".join([show_sym(parent) for child in grammar['lcwords'][next_token] for parent in grammar['leftcorner'][child]])
+            #     print(next_token, "/", " ".join([show_sym(parent) for child in grammar['lcwords'][next_token] for parent in grammar['leftcorner'][child]]))
             #     if not (next_token in followers or
             #             any(parent in followers
             #                 for child in grammar['lcwords'][next_token]
@@ -1068,7 +1068,7 @@ def process_token_emptygrammar(k, tokens, chart, grammar, agenda, add_edge, topd
                     predicts = predict_chart[start]
                     if predicts:
                         if start == k:
-                            predicts = set.union(*predicts.itervalues())
+                            predicts = set.union(*predicts.values())
                         for burule in grammar['bottomup'][nextsym]:
                             if not predicts.isdisjoint(grammar['leftcorner'][burule.sym]):
                                 active = Active(start, start, burule.lbl, nextsym, 0, burule.rule)
@@ -1077,7 +1077,7 @@ def process_token_emptygrammar(k, tokens, chart, grammar, agenda, add_edge, topd
         else:
             assert False, (type(edge), edge)
 
-    predict_chart[k] = set().union(*predict_chart[k].itervalues())
+    predict_chart[k] = set().union(*predict_chart[k].values())
 
 
 
@@ -1164,7 +1164,7 @@ def process_token_nonempty(k, tokens, chart, grammar, agenda, add_edge, topdown,
                     predict = Symbol(startcat, lbl)
                     add_edge(predict, predict_chart[k], "init TD")
     else:
-        agenda.extend(active for nextsym, actives in active_chart[k].iteritems()
+        agenda.extend(active for nextsym, actives in active_chart[k].items()
                       if type(nextsym) is Symbol for active in actives)
 
     # predict-item, predict-next, predict-TD
@@ -1321,28 +1321,28 @@ def print_chart(chart, tokens, startcats, sequences):
         actives = set.union(*chart[Active][k].values())
 
         if k > 0:
-            print '=== State %d: "%s" ===' % (k, tokens[k-1])
+            print('=== State %d: "%s" ===' % (k, tokens[k-1]))
         else:
-            print '=== State %d ===' % (k,)
-        print
-        print "Predicted:", ", ".join("%s" % (e,) for e in sorted(predicted))
-        print "Found:", ", ".join("%s" % (e,) for e in sorted(found))
-        print
+            print('=== State %d ===' % (k,))
+        print()
+        print("Predicted:", ", ".join("%s" % (e,) for e in sorted(predicted)))
+        print("Found:", ", ".join("%s" % (e,) for e in sorted(found)))
+        print()
         for edge in sorted(actives):
-            print "|", show_active_edge(edge, sequences)
-        print
+            print("|", show_active_edge(edge, sequences))
+        print()
 
-    print "=== Dynamic rules ==="
-    print
+    print("=== Dynamic rules ===")
+    print()
     for cat in sorted(chart[Rule]):
         for rule in sorted(chart[Rule][cat]):
-            print "|", rule
-    print
+            print("|", rule)
+    print()
 
-    print "=== Starting categories ==="
-    print
-    print ", ".join("%s" % (s,) for s in startcats)
-    print
+    print("=== Starting categories ===")
+    print()
+    print(", ".join("%s" % (s,) for s in startcats))
+    print()
 
 
 def trace_edge(name, edge, k, edgeid, sequences, antecedents):
@@ -1357,7 +1357,7 @@ def trace_edge(name, edge, k, edgeid, sequences, antecedents):
         edgestr = "[ %s ] :: R[%s]" % (edge, k)
     if antecedents:
         name += " (%s)" % (",".join("%s" % a for a in antecedents),)
-    print "%7s | %-20s| %s" % (edgeid, name, edgestr)
+    print("%7s | %-20s| %s" % (edgeid, name, edgestr))
 
 
 def show_active_edge(edge, sequences):
@@ -1368,10 +1368,10 @@ def show_lbl(lbl):
     return ("r%d" if isinstance(lbl, int) else "%s") % (lbl,)
 
 def show_sym(sym):
-    return ('"%s"' if isinstance(sym, basestring) else "%s") % (sym,)
+    return ('"%s"' if isinstance(sym, str) else "%s") % (sym,)
 
 def show_rhs(rhs, p=None):
-    rhs = map(show_sym, rhs)
+    rhs = list(map(show_sym, rhs))
     if p is not None:
         rhs = rhs[:p] + ["*"] + rhs[p:]
     return " ".join(rhs)
@@ -1402,7 +1402,7 @@ class TracedCounter(object):
         sys.stderr.flush()
         self.counter = 0
         self.starttime = time.time()
-        self.startclock = time.clock()
+        self.startclock = time.perf_counter()
         self.interval = interval
 
     def inc(self, out="."):
@@ -1413,7 +1413,7 @@ class TracedCounter(object):
 
     def finalize(self):
         self.time = time.time() - self.starttime
-        self.clock = time.clock() - self.startclock
+        self.clock = time.perf_counter() - self.startclock
         sys.stderr.write(" [%d] %.2f s / %.2f s\n" % (self.counter, self.clock, self.time))
         sys.stderr.flush()
 

@@ -25,7 +25,7 @@ def testparser(grammar_file, grammar_object, gf_language, start, # grammar
                     "----:|------------|----------|----:|-----:|--------:|:------------------:|"
                     "------------:|------------:|-------:|-------:|--------:|----------------")
     if only_header:
-        print table_header
+        print(table_header)
         return
 
     assert grammar_file
@@ -37,7 +37,7 @@ def testparser(grammar_file, grammar_object, gf_language, start, # grammar
 
     starters = None
     grammar_module = {}
-    execfile(grammar_file, grammar_module)
+    exec(open(grammar_file).read(), grammar_module)
     if not grammar_object:
         grammar_object = GRAMMAR_OBJECT
     if gf_language:
@@ -48,7 +48,7 @@ def testparser(grammar_file, grammar_object, gf_language, start, # grammar
     else:
         grammar = grammar_module[grammar_object]
         if isinstance(grammar, dict):
-            grammar = [(f,c,a,r) for (f,(c,a,r)) in grammar.iteritems()]
+            grammar = [(f,c,a,r) for (f,(c,a,r)) in grammar.items()]
     if not starters:
         if not start:
             start = grammar[0][1]
@@ -58,10 +58,9 @@ def testparser(grammar_file, grammar_object, gf_language, start, # grammar
         if not sentences:
             if sentences_file:
                 sentences = []
-                with open(sentences_file) as F:
+                with open(sentences_file, encoding=encoding) as F:
                     for line in F:
-                        if encoding: 
-                            line = line.decode(encoding).strip()
+                        line = line.strip()
                         if line:
                             sentences.append(line)
             else:
@@ -70,20 +69,20 @@ def testparser(grammar_file, grammar_object, gf_language, start, # grammar
                 sentences = grammar_module[sentences_object]
 
         def convert_sentence(s):
-            if isinstance(s, basestring) and ":" in s:
+            if isinstance(s, str) and ":" in s:
                 s = tuple(s.split(":", 1))
             if isinstance(s, tuple) and len(s) == 2:
                 n, s = s
                 n = int(n)
             else:
                 n = -1
-            if isinstance(s, basestring):
+            if isinstance(s, str):
                 s = s.split()
             return n, s
 
-        if nr_sentences > 0:
+        if nr_sentences and nr_sentences > 0:
             sentences = sentences[:nr_sentences]
-        sentences = map(convert_sentence, sentences)
+        sentences = list(map(convert_sentence, sentences))
 
     grammar_name = gf_language or grammar_file
     grammar_name = os.path.splitext(os.path.basename(grammar_name))[0]
@@ -106,10 +105,10 @@ def testparser(grammar_file, grammar_object, gf_language, start, # grammar
         if not quiet:
             header = "%s, %d sentences: %s = %s" % (grammar_file, len(sentences), 
                                                     ", ".join(key for key in strategy if strategy[key]), parser_name)
-            print header
-            print "=" * len(header)
-            print
-        print table_header
+            print(header)
+            print("=" * len(header))
+            print()
+        print(table_header)
 
     if seconds:
         time_multiplier = 1.0
@@ -152,22 +151,21 @@ def testparser(grammar_file, grammar_object, gf_language, start, # grammar
         if parsed_trees == nr_trees: parsed_trees = "%s+" % nr_trees
         sentstr = " ".join(sent)
         if width: sentstr = sentstr[:width]
-        if encoding: sentstr = sentstr.encode(encoding)
         if quiet: ctr.inc()
         if not quiet or fail or unique_trees or correct_trees:
-            print ('%4s | %-10s | %-8s |%4d |%5d |%8d | (%3.0f,%3.0f,%3.0f,%3.0f%%) | '
+            print(('%4s | %-10s | %-8s |%4d |%5d |%8d | (%3.0f,%3.0f,%3.0f,%3.0f%%) | '
                    '%8.2f %-2s | %8.2f us |%7s |%7s | %7s | "%s"' % 
                    ("FAIL" if fail else "", grammar_name[:10], parser_name, n, len(sent), 
                     chartsize, pct_dynrules, pct_actives, pct_found, pct_predicts,
-                    time_multiplier*time, time_suffix, 1e6*item_time, parsed_trees, unique_trees, correct_trees, sentstr))
+                    time_multiplier*time, time_suffix, 1e6*item_time, parsed_trees, unique_trees, correct_trees, sentstr)))
     if quiet: 
         ctr.finalize()
-    print ("%4s | %-10s | %-8s |%4d |      |%8d |                    | "
+    print(("%4s | %-10s | %-8s |%4d |      |%8d |                    | "
            "%8.2f %-2s | %8.2f us |%7s |%7s | %7s | " % 
            ("FAIL" if totalfail else " OK ", grammar_name[:10], parser_name, len(sentences), 
             1.0*totalsize/len(sentences), 
             time_multiplier*totaltime/len(sentences), time_suffix, 1e6*totaltime/totalsize, 
-            total_parsed_trees, total_unique_trees, total_correct_trees))
+            total_parsed_trees, total_unique_trees, total_correct_trees)))
 
 
 ######################################################################

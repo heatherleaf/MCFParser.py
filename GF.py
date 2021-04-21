@@ -97,7 +97,7 @@ class Concrete(object):
         self.linfuns = {}
         self.coercions = {}
         self.arities = {}
-        for cat, prods in self.productions.iteritems():
+        for cat, prods in self.productions.items():
             self.coercions.setdefault(cat, []).append(cat)
             for fname, args in prods:
                 if not fname:
@@ -143,11 +143,11 @@ class Concrete(object):
               for (snr, seq) in self.sequences.items()]
         s += [""]
         # if isinstance(arg, tuple):
-        #     print "<%d.%d>" % arg,
+        #     print("<%d.%d>" % arg, end=" ")
         # elif isinstance(arg, dict):
-        #     print arg,
+        #     print(arg, end=" ")
         # else:
-        #     print " ".join(arg),
+        #     print(" ".join(arg), end=" ")
 
         s += ["# cnccats"]
         s += ["%s :-> %s" % (cat, " ; ".join(ccats))
@@ -203,7 +203,7 @@ class Concrete(object):
                     for arg in seq:
                         if isinstance(arg, tuple):
                             phrase += children_lins[arg[0]][arg[1]]
-                        elif isinstance(arg, basestring):
+                        elif isinstance(arg, str):
                             phrase.append(([arg], [], path))
                         elif isinstance(arg, list):
                             phrase.append((arg, [], path))
@@ -246,11 +246,11 @@ class Concrete(object):
 
     def mcfrule_iter(self):
         coercion_rhss = [[(0, lbl)] for lbl in range(self.max_arity)]
-        for ccat, prods in self.productions.iteritems():
+        for ccat, prods in self.productions.items():
             for cfun, args in prods:
                 if cfun: 
                     seqs, _ = self.cncfuns[cfun]
-                    rhss = map(self._convert_gfsequence_to_mcf, seqs)
+                    rhss = list(map(self._convert_gfsequence_to_mcf, seqs))
                 else:
                     # coercion
                     assert len(args) == 1
@@ -293,7 +293,7 @@ class GFParser(object):
         return self.mcfparser.statistics
 
     def extract_trees(self, startcats=None, start=0, end=None, n=None):
-        if isinstance(startcats, basestring):
+        if isinstance(startcats, str):
             startcats = [startcats]
         if startcats:
             startcats = [ccat for cat in startcats for ccat in self.concrete.cnccats[cat]]
@@ -341,7 +341,7 @@ def BUFilterParserNonempty(concrete, trace=None):
 
 def testall(concrete, sentence):
     import itertools, time
-    if isinstance(sentence, basestring):
+    if isinstance(sentence, str):
         sentence = sentence.split()
     bools = (True, False)
     names = "topdown bottomup filtered incremental".split()
@@ -351,14 +351,14 @@ def testall(concrete, sentence):
             P = concrete.parser(**strategy)
         except AssertionError:
             continue
-        print "#", ", ".join(n for n, s in strategy.items() if s)
-        t0 = time.clock()
+        print("#", ", ".join(n for n, s in strategy.items() if s))
+        t0 = time.perf_counter()
         P.chart_parse(sentence)
-        t1 = time.clock() - t0
+        t1 = time.perf_counter() - t0
         for t in P.extract_trees(n=10): 
-            print " ", str_tree(t)
-        print "-> %d edges, %.2f ms" % (P.chart_statistics()['total'], 1000 * t1)
-        print 
+            print(" ", str_tree(t))
+        print("-> %d edges, %.2f ms" % (P.chart_statistics()['total'], 1000 * t1))
+        print()
 
 ######################################################################
 ## a path is a tuple of integers >= 0
@@ -392,7 +392,7 @@ def str_lin(lin, marked=None):
         return " ".join(str_token(token, marked) for token in lin) 
 
 def str_token(token, marked=None):
-    if isinstance(token, basestring):
+    if isinstance(token, str):
         return token
     else:
         word, path = token
@@ -408,7 +408,7 @@ def startswith(sequence, prefix):
 def is_tree(tree):
     return (isinstance(tree, (tuple,list)) and
             len(tree) >= 1 and
-            isinstance(tree[0], basestring) and
+            isinstance(tree[0], str) and
             all(is_tree(child) for child in tree[1:]))
 
 def make_tree(fun, children=()):
@@ -450,7 +450,7 @@ def unify(tree1, tree2):
         return tree2
     elif tree2 is None:
         return tree1
-    elif isinstance(tree1, basestring) or isinstance(tree2, basestring):
+    elif isinstance(tree1, str) or isinstance(tree2, str):
         if tree1 == tree2:
             return tree1
         else:
