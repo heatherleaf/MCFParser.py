@@ -1,50 +1,66 @@
 #!/bin/bash
 
-PYTHON=python
+maxtrees=10000
+nrsentences=30
 
-function testparser() {
-    grammar_etc=$1
-    shift
-    for parser 
-    do $PYTHON testparser.py -q -nh -w 30 $grammar_etc ${parser//-/ -}
-    done 
-}
+GFgrammars="AllEng FraCaSEng FraCaSSwe"
 
-if [ "$1" == "mcfg" ]
-then # MCF grammars
-    echo
-    echo "## Original grammar"
-    echo
-    $PYTHON testparser.py -q -nh -g larsonian1.py -stat -td -lc
-    echo
-    echo "## Nonempty grammar"
-    echo
-    $PYTHON testparser.py -q -nh -g larsonian1.py -stat -td -lc -ne
-    echo
-    $PYTHON testparser.py -oh
-    testparser '-g emptygrammar.py'  -td  -bu  -td-lc  -bu-lc  -td-ne  -bu-ne
-    testparser '-g larsonian1.py'  -td  -td-ne  -td-lc  -bu-lc  -td-lc-ne  -bu-lc-ne
-    # testparser '-g larsonian2.py'  -td  -bu  -td-ne  -bu-ne  -td-lc  -bu-lc  -td-lc-ne  -bu-lc-ne
+testcmd="python testparser.py -q -nh -w 30 -nt $maxtrees -ns $nrsentences"
 
-elif [ "$1" == "gf" ]
-then # GF grammars
-    # echo
-    # echo "## Original grammar"
-    # echo
-    # $PYTHON testparser.py -q -nh -g FraCaS.py -go FraCaS -gf FraCaSEng -stat -td -lc
-    # echo
-    # echo "## Nonempty grammar"
-    # echo
-    # $PYTHON testparser.py -q -nh -g FraCaS.py -go FraCaS -gf FraCaSEng -stat -td -lc -ne
-    # echo
-    $PYTHON testparser.py -oh
-    # testparser '-g FraCaS.py -go FraCaS -gf FraCaSEng -sf FraCaSEng-sentences.txt -nt 30000 -ns 100'  -td-lc-ne -bu-lc -td-ne   -bu
-    testparser '-g AllEngAbs.py -go AllEngAbs -gf AllEng -sf AllEng-sentences.txt -nt 30000'  -td-lc 
-    # testparser '-g FraCaS.py -go FraCaS -gf FraCaSEng -sf FraCaSEng-sentences.txt -nt 30000 -ns 30'  -td-lc  -bu-lc-ne
-    # testparser '-g FraCaS.py -go FraCaS -gf FraCaSSwe -sf FraCaSSwe-sentences.txt -nt 30000 -ns 30'  -td-lc  -bu-lc-ne
+parsers="-bu -td -bu-ne -td-ne -bu-lc -td-lc -bu-lc-ne -td-lc-ne"
 
-else
-    echo "Usage: $0 (mcfg | gf)"
-    exit
-
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 grammar [$parsers]" 1>&2
+    exit 1
 fi
+
+grammar=$1
+shift
+
+sentences=$grammar-sentences.txt
+
+# GF grammars
+case "$grammar" in
+    AllEng)    gfbase=AllEngAbs ;;
+    FraCaSEng) gfbase=FraCaS    ;;
+    FraCaSSwe) gfbase=FraCaS    ;;
+esac
+if [ -n "$gfbase" ]; then
+    testcmd="$testcmd -gf $grammar -go $gfbase"
+    grammar=$gfbase
+fi
+
+if ! [ -f "$grammar.py" ]; then
+    echo "Grammar does not exist: $grammar.py" 1>&2
+    exit 1
+fi
+testcmd="$testcmd -g $grammar.py"
+
+echo "################################################################################"
+echo "## Testing grammar: $grammar"
+echo "## $testcmd"
+echo
+echo "## Original grammar"
+echo
+$testcmd -stat -td -lc
+echo
+echo "## Nonempty grammar"
+echo
+$testcmd -stat -td -lc -ne
+echo
+
+if [ $# -eq 0 ]; then
+    echo "Provide one or more of [$parsers] to test the parsers" 1>&2
+    exit
+fi
+
+if [ -f "$sentences" ]; then
+    testcmd="$testcmd -sf $sentences"
+fi
+
+echo "## Testing the parsers"
+echo
+python testparser.py -oh
+for parser in "$@"; do
+    $testcmd ${parser//-/ -}
+done
