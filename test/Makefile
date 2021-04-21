@@ -1,23 +1,34 @@
 
-GF-DIR = ~/Projekt/GF
+.DELETE_ON_ERROR:
 
-GF-MAKE = gf -make -optimize-pgf -f python
+.PHONY: help clean
 
-.PHONY: help test clean
+ALLGRAMMARS=abcd engaux larsonian1 larsonian2 FraCaSEng FraCaSSwe AllEng
+ALLPARSERS=-bu -td -bu-ne -td-ne -bu-lc -td-lc -bu-lc-ne -td-lc-ne
+
+PARSERS?=$(ALLPARSERS)
 
 help:
-	@echo "make (mcfg | gf)"
+	@echo "make {grammar}.test PARSERS=..."
+	@echo "  where"
+	@echo "    {grammar} is one of: $(ALLGRAMMARS)"
+	@echo "    ... is one or more of: $(ALLPARSERS)"
+	@echo "                           (default is all of them)"
 
-mcfg gf: 
-	@./unittest.sh $@
+clean:
+	rm *.test
 
-gf: AllEngAbs.py FraCaS.py
+%.test: %.py
+	./unittest.sh $* $(PARSERS) > $@
 
+AllEng.test: AllEngAbs.py
+	./unittest.sh AllEng $(PARSERS) > $@
 
-FRACAS-DIR = $(GF-DIR)/examples/fracas/src
+FraCaS%.test: FraCaS.py
+	./unittest.sh FraCaS$* $(PARSERS) > $@
 
-FraCaS.py: $(FRACAS-DIR)/FraCaSEng.gf $(FRACAS-DIR)/FraCaSSwe.gf
-	$(GF-MAKE) $^
+%.py: %.pgf
+	gf -make -f python $<
 
-AllEngAbs.py: 
-	$(GF-MAKE) alltenses/AllEng.gfo
+%.py: %.mcfg
+	python convert_mcfg_to_py.py $< > $@
