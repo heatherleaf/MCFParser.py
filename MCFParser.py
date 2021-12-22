@@ -182,7 +182,7 @@ class Parser(object):
         #     self._init_emptyfollowers()
         if self.strategy['bottomup']:
             initialize_bottomup_grammar(self.grammar, self.trace)
-        if self.trace > 1: 
+        if self.trace and self.trace > 1: 
             self.print_grammar_statistics()
 
     ######################################################################
@@ -230,7 +230,7 @@ class Parser(object):
                                     if isinstance(stat[key], (int, float)))
         if trace == 1: 
             ctr.finalize()
-        elif trace > 1:
+        elif trace and trace > 1:
             self.print_parse_statistics()
         return any(Found(startcat, lbl, 0, len(tokens)) in self.chart[Rule]
                    for startcat in self.grammar['startcats']
@@ -296,7 +296,7 @@ class Parser(object):
     def print_parse_statistics(self):
         """Print a MultiMarkdown table with statistics from parsing."""
         statkeys = [set(stat) for stat in self.statistics.values() if isinstance(stat, dict)]
-        total_first = lambda key: None if key == "TOTAL" else key
+        total_first = lambda key: "" if key == "TOTAL" else key
         statkeys = sorted(set.union(*statkeys), key=total_first)
         print("Statistics |" + "".join("%9s |" % (key,) for key in statkeys))
         print("-----------|" + "".join("---------:|" for key in statkeys))
@@ -885,7 +885,7 @@ def generate_children(nr, args, rules, backup_rules, visited):
 
 def process_token(k, tokens, chart, statistics, grammar, trace=None, **strategy):
     """Process token nr k, adding items to the chart."""
-    if trace > 1:
+    if trace and trace > 1:
         token = '"%s"' % (tokens[k-1],) if k > 0 else "---"
         header = "State %d: %s" % (k, token)
         print("%-30s|||" % (header,))
@@ -906,7 +906,7 @@ def process_token(k, tokens, chart, statistics, grammar, trace=None, **strategy)
                 edgeset.add(edge)
                 agenda.append(edge)
                 statistics['Chart'][type(edge).__name__] += 1
-                if trace > 1: 
+                if trace and trace > 1: 
                     chart['edgecounter'] += 1
                     edgeid = "%d:%d" % (k, chart['edgecounter'])
                     chart['edgeids'][edge] = edgeid
@@ -920,7 +920,7 @@ def process_token(k, tokens, chart, statistics, grammar, trace=None, **strategy)
         process_token_nonempty(k, tokens, chart, grammar, agenda, add_edge, **strategy)
     statistics['Time'] += time.perf_counter() - starttime
 
-    if trace > 1:
+    if trace and trace > 1:
         if not chart['edgecounter']:
             print("                              |||")
         print()
