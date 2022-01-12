@@ -85,10 +85,11 @@ class Parser(object):
         >>> parser.print_grammar_statistics()
         Grammar statistics          ||
         -------------------|--------:|
-        Nr. terminals      |       2 |
+        Nr. terminals      |       4 |
         Nr. nonterminals   |       2 |
         Nr. nonterm-const. |       3 |
         Nr. grammar rules  |       3 |
+        Epsilon-free       |    True |
         Nr. constituents   |       5 |
         Nr. const. lengths |      12 |
         Nr. empty const.   |       0 |
@@ -892,7 +893,7 @@ def process_token(k, tokens, chart, statistics, grammar, trace=None, **strategy)
         print("--------|---------------------|-------------------------")
 
     agenda = []
-    if not trace:
+    if trace is None:
         def add_edge(edge, edgeset, name, *antecedents):
             if edge not in edgeset:
                 edgeset.add(edge)
